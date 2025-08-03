@@ -1,0 +1,14 @@
+﻿using System.ComponentModel.DataAnnotations;
+namespace BlogAPI.Models
+{
+    public class Author
+    {
+        [Required(ErrorMessage ="Fist name is required.")]
+        [StringLength(100)]
+        public string FirstName { get; set; }
+
+        [Required(ErrorMessage = "Last name is required.")]
+        [StringLength(100)]
+        public string LastName { get; set; }
+    }
+}
