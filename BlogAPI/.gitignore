@@ -4,4 +4,7 @@
 *.suo
 *.cache
 *.log
+**/bin/
+**/obj/
+
 
