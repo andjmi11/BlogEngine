@@ -1,0 +1,61 @@
+﻿@page "/manage-authors"
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+        <h3> Manage Authors</h3>
+        <button class="btn btn-primary" @onclick="OpenAuthorForm">Add another author</button>
+
+    </div>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>First name</th>
+                <th>Last name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if(loading)
+            {
+                <tr>
+                    <td colspan="4">
+                        Loading authors...
+                    </td>
+                </tr>
+            }
+            else if(!loading && authors is null)
+            {
+                <tr>
+                    <td colspan="4">
+                        No authors found.
+                    </td>
+                </tr>
+            }
+            else
+            {
+                int sno = 1;
+                foreach(var author in authors)
+                {
+                    <tr>
+                        <td>@(sno++)</td>
+                        <td>@author.FirstName</td>
+                        <td>@author.LastName</td>
+                        <td>
+                            <button type="button" class="btn btn-default btn-sm" @onclick="() => EditAuthor(author)">Edit</button>
+                        </td>
+                    </tr>
+                }
+                
+            }
+        </tbody>
+    </table>
+</div>
+<dialog id="@_authorFormDialog">
+    <SaveAuthorForm OnSaveAuthor="OnSaveAuthor" OnCloseForm="CloseAuthorForm" AuthorDTO="editAuthor" OnDeleteAuthor="OnDeleteAuthor" />
+</dialog>
+<style type="text/css">
+    dialog{
+        padding: 0;
+        border: 2px solid var(--color-purple);
+    }</style>

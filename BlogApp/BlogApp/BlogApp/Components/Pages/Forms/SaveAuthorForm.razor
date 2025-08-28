@@ -1,0 +1,31 @@
+﻿<EditForm Model="_authorModel" FormName="SaveAuthorForm"OnValidSubmit="SaveAuthorAsync">
+    <DataAnnotationsValidator />
+    <div class="card border-0">
+        <div class="card-header bg-purple text-white d-flex justify-content-between align-items-center" style="min-width: 300px">
+            <h4>Save Category</h4>
+            <button type="button" class="btn btn-sm btn-danger" @onclick="CloseFormAsync">X</button>
+        </div>
+        <div class="card-body">
+            <div class="mb-3">
+                <label class="form-label">First name: </label>
+                <InputText @bind-Value="_authorModel.FirstName" class="form-control" placeholder="First name"/>
+                <ValidationMessage For="() => _authorModel.FirstName" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Last Name: </label>
+                <InputText @bind-Value="_authorModel.LastName" class="form-control" placeholder="Last name"/>
+                <ValidationMessage For="() => _authorModel.LastName" />
+            </div>
+        </div>
+        <div class="card-footer d-flex flex-wrap
+            @(AuthorDTO != null && AuthorDTO.Id > 0 ? "justify-content-between" : "justify-content-end")">
+            @if (AuthorDTO != null && AuthorDTO.Id > 0)
+            {
+                <button type="button" class="btn btn-sm btn-danger" @onclick="DeleteAuthorAsync">Delete</button>
+            }
+
+            <button type="submit" class="btn btn-sm btn-primary">Save</button>
+        </div>
+
+    </div>
+</EditForm>
