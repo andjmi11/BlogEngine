@@ -8,10 +8,23 @@
     ".NETCoreApp,Version=v9.0": {
       "BlogApp/1.0.0": {
         "dependencies": {
+          "Blazored.TextEditor": "1.1.3",
           "BlogAPI.Shared": "1.0.0"
         },
         "runtime": {
           "BlogApp.dll": {}
+        }
+      },
+      "Blazored.TextEditor/1.1.3": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "3.1.0",
+          "Microsoft.AspNetCore.Components.Web": "3.1.0"
+        },
+        "runtime": {
+          "lib/net9.0/Blazored.TextEditor.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "MediatR/13.0.0": {
@@ -36,6 +49,35 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Authorization/3.1.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Metadata": "3.1.0",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.0",
+          "Microsoft.Extensions.Options": "8.0.0"
+        }
+      },
+      "Microsoft.AspNetCore.Components/3.1.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Authorization": "3.1.0",
+          "Microsoft.AspNetCore.Components.Analyzers": "3.1.0",
+          "Microsoft.JSInterop": "3.1.0"
+        }
+      },
+      "Microsoft.AspNetCore.Components.Analyzers/3.1.0": {},
+      "Microsoft.AspNetCore.Components.Forms/3.1.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "3.1.0"
+        }
+      },
+      "Microsoft.AspNetCore.Components.Web/3.1.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "3.1.0",
+          "Microsoft.AspNetCore.Components.Forms": "3.1.0",
+          "Microsoft.Extensions.DependencyInjection": "8.0.0",
+          "Microsoft.JSInterop": "3.1.0"
+        }
+      },
+      "Microsoft.AspNetCore.Metadata/3.1.0": {},
       "Microsoft.Extensions.DependencyInjection/8.0.0": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0"
@@ -102,6 +144,7 @@
           }
         }
       },
+      "Microsoft.JSInterop/3.1.0": {},
       "BlogAPI.Shared/1.0.0": {
         "dependencies": {
           "MediatR": "13.0.0"
@@ -121,6 +164,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Blazored.TextEditor/1.1.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0uCJwccQhuTP3bJ4jyYxLyXhKlxLhGXYt+NEWohuMtOGGDCvbKFKBVtQNjT86dUguNAYQi5V2p5v2l/BtFLXig==",
+      "path": "blazored.texteditor/1.1.3",
+      "hashPath": "blazored.texteditor.1.1.3.nupkg.sha512"
+    },
     "MediatR/13.0.0": {
       "type": "package",
       "serviceable": true,
@@ -134,6 +184,48 @@
       "sha512": "sha512-FYv95bNT4UwcNA+G/J1oX5OpRiSUxteXaUt2BJbRSdRNiIUNbggJF69wy6mnk2wYToaanpdXZdCwVylt96MpwQ==",
       "path": "mediatr.contracts/2.0.1",
       "hashPath": "mediatr.contracts.2.0.1.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authorization/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-R/0qFIu1m7jJFD0OuLIjLXC0uYQxFwwW7ylVvGgUPUpOJJK0bKJjfrDu20kY1Yw0hy9ejZYZEdUZHRm3ei0+3w==",
+      "path": "microsoft.aspnetcore.authorization/3.1.0",
+      "hashPath": "microsoft.aspnetcore.authorization.3.1.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YIcE9FGLLMt8vnjaQEf6PhI4ikxibEv6t06SQTb9BAd//UxrOklqDhCzWldF6zXxh3+VnyVGFNOOlz9Tg8vQ8A==",
+      "path": "microsoft.aspnetcore.components/3.1.0",
+      "hashPath": "microsoft.aspnetcore.components.3.1.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components.Analyzers/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DWvG559bbeNMkesZ/sYZqEH9iTx4N7WbdyChf2PS7ouZBcWjRSt/V+sKuofrTpb0c8STe14+U3kMKO5FtwaT/g==",
+      "path": "microsoft.aspnetcore.components.analyzers/3.1.0",
+      "hashPath": "microsoft.aspnetcore.components.analyzers.3.1.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components.Forms/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BkW3QVWzpTlqJWbBasahUCrebUQraIZKYS3sK1nTQOw1xNFjfBmmiLipT/9jinnQh3ogatAtfhPxNr6DMrheQg==",
+      "path": "microsoft.aspnetcore.components.forms/3.1.0",
+      "hashPath": "microsoft.aspnetcore.components.forms.3.1.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components.Web/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wuoKzEIt/4nGU5Adohw93oVM/i2Bszcumm4RQ4XY8ruZCqtq0LmeTE1y1bqRtiRjNgvaUe6cH/ogh2pZ1LQovA==",
+      "path": "microsoft.aspnetcore.components.web/3.1.0",
+      "hashPath": "microsoft.aspnetcore.components.web.3.1.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Metadata/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZiNCjglz4kR2OGElM2u/S6cS1ArAxE6lP4BeniCZcr6l+ACzslKgcPGOTY8/Glppx6CDzMKfmyqV+VbFh5CyjQ==",
+      "path": "microsoft.aspnetcore.metadata/3.1.0",
+      "hashPath": "microsoft.aspnetcore.metadata.3.1.0.nupkg.sha512"
     },
     "Microsoft.Extensions.DependencyInjection/8.0.0": {
       "type": "package",
@@ -204,6 +296,13 @@
       "sha512": "sha512-kDimB6Dkd3nkW2oZPDkMkVHfQt3IDqO5gL0oa8WVy3OP4uE8Ij+8TXnqg9TOd9ufjsY3IDiGz7pCUbnfL18tjg==",
       "path": "microsoft.identitymodel.tokens/8.0.1",
       "hashPath": "microsoft.identitymodel.tokens.8.0.1.nupkg.sha512"
+    },
+    "Microsoft.JSInterop/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-A6w985fb6RyL4x69TILW3sF2DcAufUPDOwN1LpdRZ3sZcpvb2ZnM2TrarleDhtqfS5g0Ot+2AG5AM9svH9Cm8Q==",
+      "path": "microsoft.jsinterop/3.1.0",
+      "hashPath": "microsoft.jsinterop.3.1.0.nupkg.sha512"
     },
     "BlogAPI.Shared/1.0.0": {
       "type": "project",

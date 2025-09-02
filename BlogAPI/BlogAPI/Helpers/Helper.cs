@@ -4,13 +4,16 @@ namespace BlogAPI.Helpers
 {
     public class Helper
     {
-        public ICollection<BlogTags> ToNormalizedBlogTags(List<string> tags)
+        public ICollection<BlogTags> ToNormalizedBlogTags(string tags)
         {
-            return tags.Where(t => !string.IsNullOrWhiteSpace(t))
+            if (string.IsNullOrWhiteSpace(tags))
+                return new List<BlogTags>();
+
+            return tags.Split(',', StringSplitOptions.RemoveEmptyEntries)
                 .Select(t => t.Trim().ToLower())
                 .Distinct()
                 .Select(tag => new BlogTags { TagName = tag })
-                .ToList() ?? new List<BlogTags>();
+                .ToList();
         }
     }
 }

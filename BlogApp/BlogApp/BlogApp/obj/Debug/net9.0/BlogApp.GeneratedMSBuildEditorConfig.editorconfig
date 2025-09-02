@@ -32,10 +32,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Anđelija/OneDrive - Univerzitet u Nisu - Elektronski fakultet/Radna površina/BlogEngine/BlogApp/BlogApp/BlogApp/Components/Pages/Forms/Component.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xGb3Jtc1xDb21wb25lbnQucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Anđelija/OneDrive - Univerzitet u Nisu - Elektronski fakultet/Radna površina/BlogEngine/BlogApp/BlogApp/BlogApp/Components/Pages/Forms/SaveAuthorForm.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xGb3Jtc1xTYXZlQXV0aG9yRm9ybS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -46,6 +42,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Anđelija/OneDrive - Univerzitet u Nisu - Elektronski fakultet/Radna površina/BlogEngine/BlogApp/BlogApp/BlogApp/Components/Pages/ManageAuthors.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNYW5hZ2VBdXRob3JzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Anđelija/OneDrive - Univerzitet u Nisu - Elektronski fakultet/Radna površina/BlogEngine/BlogApp/BlogApp/BlogApp/Components/Pages/ManageBlogPosts.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNYW5hZ2VCbG9nUG9zdHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Anđelija/OneDrive - Univerzitet u Nisu - Elektronski fakultet/Radna površina/BlogEngine/BlogApp/BlogApp/BlogApp/Components/Pages/SaveBlogPosts.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTYXZlQmxvZ1Bvc3RzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Anđelija/OneDrive - Univerzitet u Nisu - Elektronski fakultet/Radna površina/BlogEngine/BlogApp/BlogApp/BlogApp/Components/Routes.razor]

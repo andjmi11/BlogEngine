@@ -1,4 +1,6 @@
-﻿using BlogAPI.Features.BlogPosts.Commands;
+﻿using BlogAPI.Features.Authors.DTOs;
+using BlogAPI.Features.Authors.Queries;
+using BlogAPI.Features.BlogPosts.Commands;
 using BlogAPI.Features.BlogPosts.DTOs;
 using BlogAPI.Features.BlogPosts.Queries;
 using BlogAPI.Models;
@@ -42,17 +44,29 @@ namespace BlogAPI.Controllers
 
             return Ok($"Blog post {result.Title} is updated successfully.");
         }
-
         [HttpGet("get-all")]
-        public async Task<IEnumerable<PostDTO>> GetPosts([FromQuery] List<string>? tags, [FromQuery] string? language)
+        public async Task<IEnumerable<PostDTO>> GetPosts([FromQuery] string? tags, [FromQuery] string? language)
         {
             var posts = await _sender.Send(new GetPostsQuery
             {
-                Tags = tags,
+                Tags = tags,     
                 Language = language
             });
 
             return posts;
         }
+        [HttpGet("{id}")]
+        public async Task<ActionResult<PostDTO>> GetPostById(int id)
+        {
+            var post = await _sender.Send(new GetPostByIdQuery(id));
+
+            if (post == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(post);
+        }
+
     }
 }

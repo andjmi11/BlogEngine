@@ -1,5 +1,6 @@
 ﻿using BlogAPI.Features.BlogPosts.Commands;
 using BlogAPI.Features.BlogPosts.DTOs;
+using BlogApp.Components.Helpers;
 using System.Net.Http;
 using System.Net.Http.Json;
 
@@ -14,33 +15,66 @@ namespace BlogApp.Components.Services
             _httpClient = httpClientFactory.CreateClient("BlogAPI");
         }
 
-        public async Task<int> CreateBlogPostAsync(CreateBlogPostCommand command)
-        {
-            var response = await _httpClient.PostAsJsonAsync("api/BlogPost", command);
-            response.EnsureSuccessStatusCode();
-            return await response.Content.ReadFromJsonAsync<int>();
+        public async Task<MethodResult> CreateBlogPostAsync(CreateBlogPostCommand command) 
+        { 
+            try
+            {
+                var response = await _httpClient.PostAsJsonAsync("api/BlogPost", command);
+                if (response.IsSuccessStatusCode)
+                {
+                    var createdPost = await response.Content.ReadFromJsonAsync<PostDTO>();
+                    if (createdPost == null)
+                        return MethodResult.Failure("Failed to read response.");
+
+                    return MethodResult.Success();
+                }
+                else
+                {
+                    var error = await response.Content.ReadAsStringAsync();
+                    return MethodResult.Failure(error);
+                }
+            }
+            catch (Exception ex)
+            {
+                return MethodResult.Failure(ex.Message);
+            }
         }
 
-        public async Task<bool> DeleteBlogPostAsync(int id)
+        public async Task<MethodResult> DeleteBlogPostAsync(int id)
         {
-            var response = await _httpClient.DeleteAsync($"api/BlogPost/{id}");
-            response.EnsureSuccessStatusCode();
-            return await response.Content.ReadFromJsonAsync<bool>();
+            try
+            {
+
+
+                var response = await _httpClient.DeleteAsync($"api/BlogPost/{id}");
+                if (response.IsSuccessStatusCode)
+                {
+                    return MethodResult.Success();
+                }
+                else
+                {
+                    var error = await response.Content.ReadAsStringAsync();
+                    return MethodResult.Failure(error);
+                }
+            }
+            catch (Exception ex)
+            {
+                return MethodResult.Failure(ex.Message);
+            }
         }
 
-        public async Task<string?> UpdateBlogPostAsync(int id, UpdateBlogPostCommand command)
+        public async Task<MethodResult?> UpdateBlogPostAsync(int id, UpdateBlogPostCommand command)
         {
             var response = await _httpClient.PutAsJsonAsync($"api/BlogPost/{id}", command);
-
-            if (!response.IsSuccessStatusCode)
+            if (response.IsSuccessStatusCode)
             {
-                if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
-                    return null;
-
-                response.EnsureSuccessStatusCode();
+                return MethodResult.Success();
             }
-
-            return await response.Content.ReadFromJsonAsync<string>();
+            else
+            {
+                var error = await response.Content.ReadAsStringAsync();
+                return MethodResult.Failure(error);
+            }
         }
 
         public async Task<IEnumerable<PostDTO>> GetPostsAsync(List<string>? tags = null, string? language = null)
@@ -60,6 +94,19 @@ namespace BlogApp.Components.Services
             }
 
             return await _httpClient.GetFromJsonAsync<IEnumerable<PostDTO>>(url) ?? Enumerable.Empty<PostDTO>();
+        }
+        public async Task<PostDTO?> GetPostByIdAsync(int id)
+        {
+            try
+            {
+                var post = await _httpClient.GetFromJsonAsync<PostDTO>($"api/BlogPost/{id}");
+                return post;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error while fetching post: {ex.Message}");
+                return null;
+            }
         }
     }
 }

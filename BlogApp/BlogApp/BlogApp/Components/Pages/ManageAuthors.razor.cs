@@ -1,10 +1,8 @@
-﻿using BlogAPI.Features.Authors.Commands;
-using BlogAPI.Features.Authors.DTOs;
+﻿using BlogAPI.Features.Authors.DTOs;
 using BlogApp.Components.Helpers;
 using BlogApp.Components.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
-using System.Threading.Tasks;
 namespace BlogApp.Components.Pages
 {
     public partial class ManageAuthors : ComponentBase

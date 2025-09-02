@@ -8,7 +8,7 @@
         public string Content { get; set; }
         public string Language { get; set; }
         public DateTime DatePublished { get; set; }
-        public List<string> Tags { get; set; } = new List<string>();
+        public string Tags { get; set; }
         public string AuthorFirstName { get; set; }
         public string AuthorLastName { get; set; }
     }

@@ -15,9 +15,12 @@ namespace BlogAPI.Features.BlogPosts.Mapping
                 Content = post.Content,
                 Language = post.Language,
                 DatePublished = post.DatePublished,
-                Tags = post.Tags.Select(t => t.TagName).ToList(),
-                AuthorFirstName = post.Author.FirstName,
-                AuthorLastName = post.Author.LastName,
+                Tags = post.Tags != null
+                    ? string.Join(", ", post.Tags.Select(t => t.TagName))
+                    : string.Empty,
+                AuthorFirstName = post.Author?.FirstName ?? string.Empty,
+                AuthorLastName = post.Author?.LastName ?? string.Empty,
             };
+
     }
 }

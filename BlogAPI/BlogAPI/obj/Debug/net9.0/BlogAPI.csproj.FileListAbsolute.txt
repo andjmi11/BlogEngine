@@ -329,10 +329,12 @@ C:\Users\Anđelija\OneDrive - Univerzitet u Nisu - Elektronski fakultet\Radna po
 C:\Users\Anđelija\OneDrive - Univerzitet u Nisu - Elektronski fakultet\Radna površina\BlogEngine\BlogAPI\BlogAPI\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\Anđelija\OneDrive - Univerzitet u Nisu - Elektronski fakultet\Radna površina\BlogEngine\BlogAPI\BlogAPI\obj\Debug\net9.0\staticwebassets.development.json
 C:\Users\Anđelija\OneDrive - Univerzitet u Nisu - Elektronski fakultet\Radna površina\BlogEngine\BlogAPI\BlogAPI\obj\Debug\net9.0\staticwebassets.build.endpoints.json
-C:\Users\Anđelija\OneDrive - Univerzitet u Nisu - Elektronski fakultet\Radna površina\BlogEngine\BlogAPI\BlogAPI\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\Anđelija\OneDrive - Univerzitet u Nisu - Elektronski fakultet\Radna površina\BlogEngine\BlogAPI\BlogAPI\obj\Debug\net9.0\BlogAPI.csproj.Up2Date
 C:\Users\Anđelija\OneDrive - Univerzitet u Nisu - Elektronski fakultet\Radna površina\BlogEngine\BlogAPI\BlogAPI\obj\Debug\net9.0\BlogAPI.dll
 C:\Users\Anđelija\OneDrive - Univerzitet u Nisu - Elektronski fakultet\Radna površina\BlogEngine\BlogAPI\BlogAPI\obj\Debug\net9.0\refint\BlogAPI.dll
 C:\Users\Anđelija\OneDrive - Univerzitet u Nisu - Elektronski fakultet\Radna površina\BlogEngine\BlogAPI\BlogAPI\obj\Debug\net9.0\BlogAPI.pdb
 C:\Users\Anđelija\OneDrive - Univerzitet u Nisu - Elektronski fakultet\Radna površina\BlogEngine\BlogAPI\BlogAPI\obj\Debug\net9.0\BlogAPI.genruntimeconfig.cache
 C:\Users\Anđelija\OneDrive - Univerzitet u Nisu - Elektronski fakultet\Radna površina\BlogEngine\BlogAPI\BlogAPI\obj\Debug\net9.0\ref\BlogAPI.dll
+C:\Users\Anđelija\OneDrive - Univerzitet u Nisu - Elektronski fakultet\Radna površina\BlogEngine\BlogAPI\BlogAPI\bin\Debug\net9.0\BlogAPI.Shared.dll
+C:\Users\Anđelija\OneDrive - Univerzitet u Nisu - Elektronski fakultet\Radna površina\BlogEngine\BlogAPI\BlogAPI\bin\Debug\net9.0\BlogAPI.Shared.pdb
+C:\Users\Anđelija\OneDrive - Univerzitet u Nisu - Elektronski fakultet\Radna površina\BlogEngine\BlogAPI\BlogAPI\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

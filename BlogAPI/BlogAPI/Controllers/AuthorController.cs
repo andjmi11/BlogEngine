@@ -62,9 +62,9 @@ namespace BlogAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateAuthor(int id, [FromBody] UpdateAuthorCommand command)
+        public async Task<IActionResult> UpdateAuthor([FromBody] UpdateAuthorCommand command)
         {
-            command.Id = id;
+            //command.Id = id;
             var result = await _sender.Send(command);
 
             if (result == null)
@@ -72,6 +72,17 @@ namespace BlogAPI.Controllers
 
 
             return Ok($"Author {result.FirstName} {result.LastName} is updated successfully.");
+        }
+
+        [HttpGet("by-name")]
+        public async Task<ActionResult<int>> GetAuthorIdByName([FromQuery] string firstName, [FromQuery] string lastName)
+        {
+            var authorId = await _sender.Send(new GetAuthorIdByNameQuery(firstName, lastName));
+
+            if (authorId == null)
+                return NotFound("Author not found");
+
+            return Ok(authorId);
         }
     }
 }

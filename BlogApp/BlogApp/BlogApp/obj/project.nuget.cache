@@ -1,11 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "RoaePlCMv5A=",
+  "dgSpecHash": "yRmE6f6JEQI=",
   "success": true,
   "projectFilePath": "C:\\Users\\Anđelija\\OneDrive - Univerzitet u Nisu - Elektronski fakultet\\Radna površina\\BlogEngine\\BlogApp\\BlogApp\\BlogApp\\BlogApp.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Anđelija\\.nuget\\packages\\blazored.texteditor\\1.1.3\\blazored.texteditor.1.1.3.nupkg.sha512",
     "C:\\Users\\Anđelija\\.nuget\\packages\\mediatr\\13.0.0\\mediatr.13.0.0.nupkg.sha512",
     "C:\\Users\\Anđelija\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\Anđelija\\.nuget\\packages\\microsoft.aspnetcore.authorization\\3.1.0\\microsoft.aspnetcore.authorization.3.1.0.nupkg.sha512",
+    "C:\\Users\\Anđelija\\.nuget\\packages\\microsoft.aspnetcore.components\\3.1.0\\microsoft.aspnetcore.components.3.1.0.nupkg.sha512",
+    "C:\\Users\\Anđelija\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\3.1.0\\microsoft.aspnetcore.components.analyzers.3.1.0.nupkg.sha512",
+    "C:\\Users\\Anđelija\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\3.1.0\\microsoft.aspnetcore.components.forms.3.1.0.nupkg.sha512",
+    "C:\\Users\\Anđelija\\.nuget\\packages\\microsoft.aspnetcore.components.web\\3.1.0\\microsoft.aspnetcore.components.web.3.1.0.nupkg.sha512",
+    "C:\\Users\\Anđelija\\.nuget\\packages\\microsoft.aspnetcore.metadata\\3.1.0\\microsoft.aspnetcore.metadata.3.1.0.nupkg.sha512",
     "C:\\Users\\Anđelija\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0\\microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
     "C:\\Users\\Anđelija\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\Anđelija\\.nuget\\packages\\microsoft.extensions.logging\\8.0.0\\microsoft.extensions.logging.8.0.0.nupkg.sha512",
@@ -15,7 +22,8 @@
     "C:\\Users\\Anđelija\\.nuget\\packages\\microsoft.identitymodel.abstractions\\8.0.1\\microsoft.identitymodel.abstractions.8.0.1.nupkg.sha512",
     "C:\\Users\\Anđelija\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\8.0.1\\microsoft.identitymodel.jsonwebtokens.8.0.1.nupkg.sha512",
     "C:\\Users\\Anđelija\\.nuget\\packages\\microsoft.identitymodel.logging\\8.0.1\\microsoft.identitymodel.logging.8.0.1.nupkg.sha512",
-    "C:\\Users\\Anđelija\\.nuget\\packages\\microsoft.identitymodel.tokens\\8.0.1\\microsoft.identitymodel.tokens.8.0.1.nupkg.sha512"
+    "C:\\Users\\Anđelija\\.nuget\\packages\\microsoft.identitymodel.tokens\\8.0.1\\microsoft.identitymodel.tokens.8.0.1.nupkg.sha512",
+    "C:\\Users\\Anđelija\\.nuget\\packages\\microsoft.jsinterop\\3.1.0\\microsoft.jsinterop.3.1.0.nupkg.sha512"
   ],
   "logs": []
 }

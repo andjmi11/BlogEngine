@@ -162,8 +162,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string"
             }
           }
         ],
@@ -189,6 +188,54 @@
         "responses": {
           "200": {
             "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Author/by-name": {
+      "get": {
+        "tags": [
+          "Author"
+        ],
+        "parameters": [
+          {
+            "name": "firstName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lastName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
           }
         }
       }
@@ -305,6 +352,44 @@
             "description": "OK"
           }
         }
+      },
+      "get": {
+        "tags": [
+          "BlogPost"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostDTO"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostDTO"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostDTO"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/BlogPost/get-all": {
@@ -317,10 +402,7 @@
             "name": "tags",
             "in": "query",
             "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "type": "string"
             }
           },
           {
@@ -423,10 +505,7 @@
             "format": "date-time"
           },
           "tags": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
+            "type": "string",
             "nullable": true
           },
           "authorId": {
@@ -464,10 +543,7 @@
             "format": "date-time"
           },
           "tags": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
+            "type": "string",
             "nullable": true
           },
           "authorFirstName": {
@@ -527,10 +603,7 @@
             "format": "date-time"
           },
           "tags": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
+            "type": "string",
             "nullable": true
           },
           "authorId": {

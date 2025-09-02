@@ -88,6 +88,33 @@ namespace BlogApp.Components.Services
                 return MethodResult.Failure(ex.Message);
             }
         }
+
+        public async Task<int?> GetAuthorIdByNameAsync(string firstName, string lastName)
+        {
+            try
+            {
+                var response = await _httpClient.GetAsync($"api/Author/by-name?firstName={Uri.EscapeDataString(firstName)}&lastName={Uri.EscapeDataString(lastName)}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var authorId = await response.Content.ReadFromJsonAsync<int?>();
+                    return authorId;
+                }
+                else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+                {
+                    return null;
+                }
+                else
+                {
+                    var error = await response.Content.ReadAsStringAsync();
+                    throw new Exception(error);
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
 }
 

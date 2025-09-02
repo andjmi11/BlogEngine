@@ -1682,6 +1682,19 @@
             "rid": "win"
           }
         }
+      },
+      "BlogAPI.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "MediatR": "13.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BlogAPI.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BlogAPI.Shared.dll": {}
+        }
       }
     }
   },
@@ -4917,10 +4930,16 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "BlogAPI.Shared/1.0.0": {
+      "type": "project",
+      "path": "../../BlogApp/BlogApp/BlogAPI.Shared/BlogAPI.Shared.csproj",
+      "msbuildProject": "../../BlogApp/BlogApp/BlogAPI.Shared/BlogAPI.Shared.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
+      "BlogAPI.Shared >= 1.0.0",
       "MediatR >= 13.0.0",
       "Microsoft.AspNetCore.OpenApi >= 9.0.7",
       "Microsoft.EntityFrameworkCore.Design >= 9.0.7",
@@ -4960,7 +4979,11 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Anđelija\\OneDrive - Univerzitet u Nisu - Elektronski fakultet\\Radna površina\\BlogEngine\\BlogApp\\BlogApp\\BlogAPI.Shared\\BlogAPI.Shared.csproj": {
+              "projectPath": "C:\\Users\\Anđelija\\OneDrive - Univerzitet u Nisu - Elektronski fakultet\\Radna površina\\BlogEngine\\BlogApp\\BlogApp\\BlogAPI.Shared\\BlogAPI.Shared.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

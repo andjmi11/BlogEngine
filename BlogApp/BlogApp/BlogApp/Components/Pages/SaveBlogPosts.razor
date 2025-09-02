@@ -1,0 +1,110 @@
+﻿@page "/manage-blogs/save-post"
+@page "/manage-blogs/edit-post/{urlPostId:int?}"
+
+<div class="container">
+    <EditForm Model="_blogModel" FormName="SaveBlogForm" OnValidSubmit="SaveBlogAsync">
+        <DataAnnotationsValidator />
+        <div class="card border-0">
+            <div class="d-flex justify-content-between align-items-center">
+                <h3> Save blog post</h3>
+                <NavLink href="/manage-blogs" class="btn btn-primary">Back to Manage Post</NavLink>
+
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label class="form-label">Title</label>
+                    <InputText @bind-Value="_blogModel.Title" class="form-control" placeholder="Enter title" />
+                    <ValidationMessage For="@(() => _blogModel.Title)" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Short Description</label>
+                    <InputTextArea @bind-Value="_blogModel.ShortDescription" class="form-control" placeholder="Enter short description" rows="3" />
+                    <ValidationMessage For="@(() => _blogModel.ShortDescription)" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Content</label>
+                        <Blazored.TextEditor.BlazoredTextEditor @ref="@QuillHtml">
+                            <ToolbarContent>
+                                <select class="ql-header">
+                                    <option selected=""></option>
+                                    <option value="1"></option>
+                                    <option value="2"></option>
+                                    <option value="3"></option>
+                                    <option value="4"></option>
+                                    <option value="5"></option>
+                                </select>
+                                <span class="ql-formats">
+                                    <button class="ql-bold"></button>
+                                    <button class="ql-italic"></button>
+                                    <button class="ql-underline"></button>
+                                    <button class="ql-strike"></button>
+                                </span>
+                                <span class="ql-formats">
+                                    <select class="ql-color"></select>
+                                    <select class="ql-background"></select>
+                                </span>
+                                <span class="ql-formats">
+                                    <button class="ql-list" value="ordered"></button>
+                                    <button class="ql-list" value="bullet"></button>
+                                </span>
+                                <span class="ql-formats">
+                                    <button class="ql-link"></button>
+                                </span>
+                            </ToolbarContent>
+                            <EditorContent>
+                                @((MarkupString)_blogModel.Content)
+                            </EditorContent>
+                        </Blazored.TextEditor.BlazoredTextEditor>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Language</label>
+                    <InputText @bind-Value="_blogModel.Language" class="form-control" placeholder="e.g. en, sr" />
+                    <ValidationMessage For="@(() => _blogModel.Language)" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Tags (comma separated)</label>
+                    <InputText @bind-Value="_blogModel.Tags" class="form-control" placeholder="e.g. Blazor, .NET, Web" />
+                    <ValidationMessage For="@(() => _blogModel.Tags)" />
+                </div>  
+
+                <div class="mb-3">
+                    <label class="form-label">Date Published</label>
+                    <InputDate @bind-Value="_blogModel.DatePublished" class="form-control" />
+                    <ValidationMessage For="@(() => _blogModel.DatePublished)" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Author</label>
+                    <InputSelect @bind-Value="_blogModel.AuthorId" class="form-control">
+                        <option value="">-- Select Author --</option>
+                        @foreach (var author in Authors)
+                        {
+                            <option value="@author.Id">
+                                @author.FirstName @author.LastName
+                            </option>
+                        }
+                    </InputSelect>
+                    <ValidationMessage For="() => _blogModel.AuthorId" />
+                </div>
+            </div>
+
+            <div class="card-footer d-flex justify-content-between">
+                    @if (BlogId > 0)
+                    {
+                        <button type="button" class="btn btn-danger" @onclick="DeleteBlogPostAsync">Delete</button>
+                    }
+                    else
+                    {
+                        <button type="reset" class="btn btn-danger" @onclick="Cancel">Cancel</button>
+                    }
+
+                    <button type="submit" class="btn btn-success">Save</button>
+            </div>
+        </div>
+    </EditForm>
+</div>
+

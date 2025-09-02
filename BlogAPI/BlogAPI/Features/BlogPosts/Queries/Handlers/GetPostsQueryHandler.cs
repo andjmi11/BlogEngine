@@ -28,13 +28,19 @@ namespace BlogAPI.Features.BlogPosts.Queries.Handlers
                 posts = posts.Where(p => p.Language == request.Language);
             }
 
-            if (request.Tags != null && request.Tags.Any())
+            if (!string.IsNullOrWhiteSpace(request.Tags))
             {
-                foreach (var tag in request.Tags)
+                var tags = request.Tags
+                    .Split(',', StringSplitOptions.RemoveEmptyEntries)
+                    .Select(t => t.Trim().ToLower())
+                    .ToList();
+
+                foreach (var tag in tags)
                 {
                     posts = posts.Where(p => p.Tags.Any(t => t.TagName == tag));
                 }
             }
+
             var result = await posts
                 .Select(p => p.ToDto())   
                 .ToListAsync(cancellationToken);
