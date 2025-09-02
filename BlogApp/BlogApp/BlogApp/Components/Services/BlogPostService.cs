@@ -15,8 +15,8 @@ namespace BlogApp.Components.Services
             _httpClient = httpClientFactory.CreateClient("BlogAPI");
         }
 
-        public async Task<MethodResult> CreateBlogPostAsync(CreateBlogPostCommand command) 
-        { 
+        public async Task<MethodResult> CreateBlogPostAsync(CreateBlogPostCommand command)
+        {
             try
             {
                 var response = await _httpClient.PostAsJsonAsync("api/BlogPost", command);
@@ -108,5 +108,19 @@ namespace BlogApp.Components.Services
                 return null;
             }
         }
+        public async Task<IEnumerable<TagDTO>> GetTagsByBlogIdAsync(int blogId)
+        {
+            try
+            {
+                var tags = await _httpClient.GetFromJsonAsync<IEnumerable<TagDTO>>($"api/BlogPost/{blogId}/tags");
+                return tags ?? Enumerable.Empty<TagDTO>();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching tags for blog {blogId}: {ex.Message}");
+                return Enumerable.Empty<TagDTO>();
+            }
+        }
+
     }
 }

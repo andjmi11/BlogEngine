@@ -1,7 +1,91 @@
 ﻿@page "/"
+@using BlogApp.Components.Helpers;
+<PageTitle>Latest post | Blog</PageTitle>
 
-<PageTitle>Home</PageTitle>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+            <h1 class="fs-3">Latest posts</h1>
+            <hr/>
+            @if (posts == null)
+            {
+                <div class="d-flex justify-content-center flex-column align-items-center" style="min-height:250px">
+                    <h3>No blog posts found.</h3>
+                    <NavLink href="/manage-blogs/save-post" class="btn btn-primary"> Click here to create a new blog post</NavLink>
+                </div>
+            }
+            else
+            {
+                <ul class="list-unstyled">
+                    @foreach(var post in posts)
+                    {
+                        var color = Utilities.GetRandomColorClasses();
+                        var detailPageUrl = $"/blogpostdetails/{post.Id}";
+                        <li class="mb-3">
+                            <div class="row">
+                                <div class="row-sm-5 bg-@color rounded d-flex justify-content-start align-content-start">
+                                    <NavLink href="@detailPageUrl" class="fs-5 text-white">@post.Title</NavLink>
+                                </div>
+                                @if (postTags.ContainsKey(post.Id) && postTags[post.Id].Any())
+                                {
+                                    <div class="mb-2">
+                                        @foreach (var tag in postTags[post.Id])
+                                        {
+                                            <span class="badge bg-@color me-1" style="cursor:pointer" @onclick="() => OnTagClicked(tag.Name)">
+                                                @tag.Name
+                                            </span>
+                                        }
+                                    </div>
+                                }
+                                <div class="row-sm-10 bg-@color bg-opacity-10">
+                                    <h2 class="fs-6">
+                                        @post.ShortDescription
+                                    </h2>
+                                    <small>
+                                        <label>
+                                            @post.AuthorFirstName @post.AuthorLastName
+                                        </label>
+                                        <label>
+                                            @post.DatePublished.ToShortDateString()
+                                        </label>
+                                    </small>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            }
+        </div>
+        <div class="col-sm-3">
+            <h1 class="fs-3">Filters</h1>
+            <hr />
 
-<h1>Hello, world!</h1>
+            <!-- Language filter -->
+            <label>Language</label>
+            <select class="form-select mb-2" @onchange="OnLanguageChanged">
+                <option value="">All</option>
+                <option value="en">English</option>
+                <option value="sr">Serbian</option>
+            </select>
 
-Welcome to your new app.
+
+            <!-- Selected tags -->
+            @if (selectedTags.Any())
+            {
+                <div class="mb-2">
+                    <label>Selected tags:</label>
+                    @foreach (var tag in selectedTags)
+                    {
+                        <span class="badge bg-primary me-1" style="cursor:pointer" @onclick="() => RemoveTag(tag)">
+                            @tag &times;
+                        </span>
+                    }
+                </div>
+            }
+
+            <button class="btn btn-secondary mt-2" @onclick="ClearAllFilters">Clear All</button>
+        </div>
+
+           
+    </div>
+</div>

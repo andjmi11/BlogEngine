@@ -68,5 +68,18 @@ namespace BlogAPI.Controllers
             return Ok(post);
         }
 
+        [HttpGet("{id}/tags")]
+        public async Task<ActionResult<IEnumerable<TagDTO>>> GetBlogTags(int id)
+        {
+            var tags = await _sender.Send(new GetTagByPostIdQuery(id));
+
+            if (tags == null || !tags.Any())
+                return NotFound($"No tags found for blog post with id {id}");
+
+            return Ok(tags);
+        }
+
+
+
     }
 }

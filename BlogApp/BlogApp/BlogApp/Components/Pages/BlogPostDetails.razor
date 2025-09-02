@@ -1,0 +1,37 @@
+﻿@page "/blogpostdetails/{urlPostId:int}"
+@using BlogApp.Components.Helpers
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-9">
+            @if (notFound)
+            {
+                <div class="d-flex justify-content-center flex-column align-items-center" style="min-height:250px">
+                    <h3>Not found.</h3>
+                    <NavLink href="/" class="btn btn-primary"> Click here to see the latest blog posts</NavLink>
+                </div>
+            }
+            else
+            {
+                var color = Utilities.GetRandomColorClasses();
+                <h1 class="fs-1 bg-@color text-white p-2 rounded justify-content-center flex-column align-items-center">@post.Title</h1>
+                <small>
+                    <label>
+                        @post.AuthorFirstName @post.AuthorLastName
+                    </label>
+                    <label>
+                        @post.DatePublished.ToShortDateString()
+                    </label>
+                </small>
+                <hr />
+                <div class="main-content bg-@color bg-opacity-10">
+                    @((MarkupString)post.Content)
+                </div>
+            }
+        </div>
+        <div class="col-sm-3">
+            <NavLink href="/" class="btn btn-primary">Back to Blog</NavLink>
+
+        </div>
+    </div>
+</div>
