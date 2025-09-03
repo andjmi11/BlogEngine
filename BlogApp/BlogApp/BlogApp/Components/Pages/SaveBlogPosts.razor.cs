@@ -30,6 +30,7 @@ namespace BlogApp.Components.Pages
         [Inject]
         public IJSRuntime JSRuntime { get; set; }
 
+
         [Inject]
         public NavigationManager NavigationManager { get; set; }
         Blazored.TextEditor.BlazoredTextEditor QuillHtml { get; set; }
@@ -97,7 +98,7 @@ namespace BlogApp.Components.Pages
             if (result?.Status == true)
             {
                 await JSRuntime.InvokeVoidAsync("alert", "Blog post saved successfully!");
-                NavigationManager.NavigateTo("/manage-blogs");
+                NavigationManager.NavigateTo("/manage-blogs", forceLoad: true);
             }
             else
             {

@@ -51,11 +51,13 @@
         </tbody>
     </table>
 </div>
-<dialog id="@_authorFormDialog">
-    <SaveAuthorForm OnSaveAuthor="OnSaveAuthor" OnCloseForm="CloseAuthorForm" AuthorDTO="editAuthor" OnDeleteAuthor="OnDeleteAuthor" />
-</dialog>
-<style type="text/css">
-    dialog{
-        padding: 0;
-        border: 2px solid var(--color-purple);
-    }</style>
+<div class="modal fade" id="authorModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <SaveAuthorForm OnSaveAuthor="OnSaveAuthor"
+                            OnCloseForm="CloseAuthorForm"
+                            AuthorDTO="editAuthor"
+                            OnDeleteAuthor="OnDeleteAuthor" />
+        </div>
+    </div>
+</div>

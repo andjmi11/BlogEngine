@@ -1,6 +1,8 @@
-﻿using BlogAPI.Features.BlogPosts.DTOs;
-using Microsoft.AspNetCore.Components;
+﻿using BlogAPI.Features.Authors.DTOs;
+using BlogAPI.Features.BlogPosts.DTOs;
 using BlogApp.Components.Services;
+using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 
 namespace BlogApp.Components.Pages
 {
@@ -10,21 +12,38 @@ namespace BlogApp.Components.Pages
         private Dictionary<int, IEnumerable<TagDTO>> postTags = new();
         [Inject]
         public BlogPostService BlogPostService { get; set; }
-
+        [Inject]
+        public AuthorService AuthorService { get; set; }
         private string? selectedLanguage;
         private List<string> selectedTags = new();
         private List<string> availableLanguages = new();
+        private List<AuthorDTO> availableAuthors = new();
+        private int? selectedAuthorId;
+        private DateTime? dateFrom;
+        private DateTime? dateTo;
+        [Inject]
+        public IJSRuntime JS { get; set; }
 
+        private async Task ApplyFiltersAndClose()
+        {
+            await JS.InvokeVoidAsync("closeOffcanvas", "mobileFilters"); 
+        }
         protected override async Task OnInitializedAsync()
         {
             availableLanguages = (await BlogPostService.GetLanguagesAsync()).ToList();
+            availableAuthors = (await AuthorService.GetAllAuthorsAsync()).ToList();
             await LoadPostsAsync();
         }
 
         private async Task LoadPostsAsync()
         {
-            posts = (await BlogPostService.GetPostsAsync(selectedTags, selectedLanguage))
-                        .ToList();
+            posts = (await BlogPostService.GetPostsAsync(
+                selectedTags,
+                selectedLanguage,
+                selectedAuthorId,
+                dateFrom,
+                dateTo
+            )).ToList();
 
             if (posts != null)
             {
@@ -43,7 +62,12 @@ namespace BlogApp.Components.Pages
             await LoadPostsAsync();
         }
 
-
+        private async Task OnAuthorChanged(ChangeEventArgs e)
+        {
+            var value = e.Value?.ToString();
+            selectedAuthorId = string.IsNullOrEmpty(value) ? null : int.Parse(value);
+            await LoadPostsAsync();
+        }
         private async Task OnTagClicked(string tag)
         {
             if (!selectedTags.Contains(tag))
@@ -62,6 +86,9 @@ namespace BlogApp.Components.Pages
         {
             selectedTags.Clear();
             selectedLanguage = null;
+            selectedAuthorId = null;
+            dateFrom = null;
+            dateTo = null;
             await LoadPostsAsync();
             StateHasChanged();
         }

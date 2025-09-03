@@ -40,6 +40,15 @@ namespace BlogAPI.Features.BlogPosts.Queries.Handlers
                     posts = posts.Where(p => p.Tags.Any(t => t.TagName == tag));
                 }
             }
+            if (request.AuthorId.HasValue)
+                posts = posts.Where(p => p.Author.Id == request.AuthorId.Value);
+
+            if (request.DateFrom.HasValue)
+                posts = posts.Where(p => p.DatePublished >= request.DateFrom.Value);
+
+            if (request.DateTo.HasValue)
+                posts = posts.Where(p => p.DatePublished <= request.DateTo.Value);
+
 
             var result = await posts
                 .Select(p => p.ToDto())   

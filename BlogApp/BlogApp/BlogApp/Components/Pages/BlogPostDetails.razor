@@ -12,19 +12,21 @@
             }
             else
             {
-                <h1 class="fs-1 bg-dark text-white p-2 rounded justify-content-center flex-column align-items-center">@post.Title</h1>
-                <small>
-                    <label>
-                        @post.AuthorFirstName @post.AuthorLastName
-                    </label>
+                <h1 class="fs-1 bg-dark text-white p-2 rounded justify-content-center flex-column align-items-center">@post.Title (@post.Language)</h1>
+                <small class="d-flex justify-content-between align-content-center">
                     <label>
                         @post.DatePublished.ToShortDateString()
                     </label>
+                    <label>
+                        @post.AuthorFirstName @post.AuthorLastName 
+                    </label>
                 </small>
                 <hr />
+
                 <div class="main-content bg-dark bg-opacity-10">
                     @((MarkupString)post.Content)
                 </div>
+
             }
         </div>
         <div class="col-sm-3">

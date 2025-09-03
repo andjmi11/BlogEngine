@@ -3,6 +3,7 @@ using BlogAPI.Features.BlogPosts.DTOs;
 using BlogApp.Components.Helpers;
 using System.Net.Http;
 using System.Net.Http.Json;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace BlogApp.Components.Services
 {
@@ -77,25 +78,37 @@ namespace BlogApp.Components.Services
             }
         }
 
-        public async Task<IEnumerable<PostDTO>> GetPostsAsync(List<string>? tags = null, string? language = null)
-        {
+        public async Task<IEnumerable<PostDTO>> GetPostsAsync(
+            List<string>? tags = null,
+            string? language = null,
+            int? authorId = null,
+            DateTime? dateFrom = null,
+            DateTime? dateTo = null){ 
             string url = "api/BlogPost/get-all";
 
-            if ((tags != null && tags.Any()) || !string.IsNullOrEmpty(language))
+            var queryParams = new List<string>();
+
+            if (tags != null && tags.Any())
             {
-                var queryParams = new List<string>();
-
-                if (tags != null && tags.Any())
-                {
-                    var csv = string.Join(",", tags);
-                    queryParams.Add($"tags={Uri.EscapeDataString(csv)}");
-                }
-
-                if (!string.IsNullOrEmpty(language))
-                    queryParams.Add($"language={Uri.EscapeDataString(language)}");
-
-                url += "?" + string.Join("&", queryParams);
+                var csv = string.Join(",", tags);
+                queryParams.Add($"tags={Uri.EscapeDataString(csv)}");
             }
+
+            if (!string.IsNullOrEmpty(language))
+                queryParams.Add($"language={Uri.EscapeDataString(language)}");
+
+            if (authorId.HasValue)
+                queryParams.Add($"authorId={authorId.Value}");
+
+            if (dateFrom.HasValue)
+                queryParams.Add($"dateFrom={dateFrom.Value:yyyy-MM-dd}");
+
+            if (dateTo.HasValue)
+                queryParams.Add($"dateTo={dateTo.Value:yyyy-MM-dd}");
+
+            if (queryParams.Any())
+                url += "?" + string.Join("&", queryParams);
+
 
             return await _httpClient.GetFromJsonAsync<IEnumerable<PostDTO>>(url) ?? Enumerable.Empty<PostDTO>();
         }

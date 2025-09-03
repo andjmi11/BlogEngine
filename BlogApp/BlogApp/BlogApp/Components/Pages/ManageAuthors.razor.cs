@@ -62,15 +62,16 @@ namespace BlogApp.Components.Pages
         {
             await JSRuntime.InvokeVoidAsync("window.alert", message);
         }
+
         private async Task OpenAuthorForm()
-        { 
-            await JSRuntime.InvokeVoidAsync("window.openModal", _authorFormDialog);
+        {
+            await JSRuntime.InvokeVoidAsync("bootstrapInterop.showModal", "authorModal");
         }
 
         private async Task CloseAuthorForm()
         {
             editAuthor = new();
-            await JSRuntime.InvokeVoidAsync("window.closeModal", _authorFormDialog);
+            await JSRuntime.InvokeVoidAsync("bootstrapInterop.hideModal", "authorModal");
         }
 
         private async Task EditAuthor(AuthorDTO authorUpdate)
@@ -78,5 +79,7 @@ namespace BlogApp.Components.Pages
             editAuthor = authorUpdate.Clone();
             await OpenAuthorForm();
         }
+
+
     }
 }

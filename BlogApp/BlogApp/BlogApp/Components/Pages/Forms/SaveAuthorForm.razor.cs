@@ -22,6 +22,7 @@ namespace BlogApp.Components.Pages.Forms
 
         private UpdateAuthorCommand _updatedAuthorModel = new();
         private CreateAuthorCommand _authorModel = new();
+
         protected override void OnParametersSet()
         {
             base.OnParametersSet();

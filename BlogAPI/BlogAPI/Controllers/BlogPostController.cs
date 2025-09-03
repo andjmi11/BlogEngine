@@ -45,16 +45,25 @@ namespace BlogAPI.Controllers
             return Ok($"Blog post {result.Title} is updated successfully.");
         }
         [HttpGet("get-all")]
-        public async Task<IEnumerable<PostDTO>> GetPosts([FromQuery] string? tags, [FromQuery] string? language)
+        public async Task<IEnumerable<PostDTO>> GetPosts(
+            [FromQuery] string? tags,
+            [FromQuery] string? language,
+            [FromQuery] int? authorId,
+            [FromQuery] DateTime? dateFrom,
+            [FromQuery] DateTime? dateTo)
         {
             var posts = await _sender.Send(new GetPostsQuery
             {
-                Tags = tags,     
-                Language = language
+                Tags = tags,
+                Language = language,
+                AuthorId = authorId,
+                DateFrom = dateFrom,
+                DateTo = dateTo
             });
 
             return posts;
         }
+
         [HttpGet("{id}")]
         public async Task<ActionResult<PostDTO>> GetPostById(int id)
         {

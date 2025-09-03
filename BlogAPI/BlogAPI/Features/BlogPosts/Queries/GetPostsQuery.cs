@@ -8,5 +8,8 @@ namespace BlogAPI.Features.BlogPosts.Queries
     {
         public string Language { get; set; }
         public string Tags { get; set; }
+        public int? AuthorId { get; set; }        
+        public DateTime? DateFrom { get; set; }  
+        public DateTime? DateTo { get; set; }
     }
 }

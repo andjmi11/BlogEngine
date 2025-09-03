@@ -1,61 +1,93 @@
 ﻿@page "/manage-blogs"
 
 <div class="container">
-    <div class="d-flex justify-content-between align-items-center">
-        <h3> Manage Blog posts</h3>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3>Manage Blog posts</h3>
         <NavLink href="/manage-blogs/save-post" class="btn btn-primary">Add another blog post</NavLink>
-
     </div>
+
     <hr />
-    <table class="table">
-        <thead>
-            <tr>
-                <th>No.</th>
-                <th>Title</th>
-                <th>Short description</th>
-                <th>Language</th>
-                <th>Date Published</th>
-                <th>Author</th>
-            </tr>
-        </thead>
-        <tbody>
-            @if (loading)
-            {
+
+    <div class="d-none d-md-block">
+        <table class="table">
+            <thead>
                 <tr>
-                    <td colspan="4" class="text-center">
-                        Loading posts...
-                    </td>
+                    <th>No.</th>
+                    <th>Title</th>
+                    <th>Short description</th>
+                    <th>Language</th>
+                    <th>Date Published</th>
+                    <th>Author</th>
+                    <th>Actions</th>
                 </tr>
-            }
-            else if (!loading && posts is null)
-            {
-                <tr>
-                    <td colspan="4" class="text-center">
-                        No blog posts found.
-                        <NavLink href="/manage-blogs/save-post" class="btn btn-primary">Create first blog post</NavLink>
-                    </td>
-                </tr>
-            }
-            else
-            {
-                int sno = 1;
-                foreach (var post in posts)
+            </thead>
+            <tbody>
+                @if (loading)
                 {
-                    var editPostLink = $"/manage-blogs/edit-post/{post.Id}";
+                    <tr><td colspan="7" class="text-center">Loading posts...</td></tr>
+                }
+                else if (!loading && posts is null)
+                {
                     <tr>
-                        <td>@(sno++)</td>
-                        <td>@post.Title</td>
-                        <td>@post.ShortDescription</td>
-                        <td>@post.Language</td>
-                        <td>@post.DatePublished</td>
-                        <td>@post.AuthorFirstName @post.AuthorLastName</td>
-                        <td>
-                            <NavLink href="@editPostLink" class="btn btn-default btn-sm">Edit</NavLink>
+                        <td colspan="7" class="text-center">
+                            No blog posts found.
+                            <NavLink href="/manage-blogs/save-post" class="btn btn-primary">Create first blog post</NavLink>
                         </td>
                     </tr>
                 }
+                else
+                {
+                    int sno = 1;
+                    foreach (var post in posts)
+                    {
+                        var editPostLink = $"/manage-blogs/edit-post/{post.Id}";
+                        <tr>
+                            <td>@(sno++)</td>
+                            <td class="text-truncate" style="max-width:150px" title="@post.Title">@post.Title</td>
+                            <td class="text-truncate" style="max-width:150px" title="@post.ShortDescription">@post.ShortDescription</td>
+                            <td>@post.Language</td>
+                            <td>@post.DatePublished.ToShortDateString()</td>
+                            <td>@post.AuthorFirstName @post.AuthorLastName</td>
+                            <td>
+                                <NavLink href="@editPostLink" class="btn btn-default btn-sm">Edit</NavLink>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
 
+
+    <div class="d-block d-md-none">
+        @if (loading)
+        {
+            <div class="text-center">Loading posts...</div>
+        }
+        else if (!loading && posts is null)
+        {
+            <div class="text-center">
+                No blog posts found.
+                <NavLink href="/manage-blogs/save-post" class="btn btn-primary">Create first blog post</NavLink>
+            </div>
+        }
+        else
+        {
+            int sno = 1;
+            foreach (var post in posts)
+            {
+                var editPostLink = $"/manage-blogs/edit-post/{post.Id}";
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title text-truncate" title="@post.Title">@post.Title</h5>
+                        <p class="card-text text-truncate" title="@post.ShortDescription">@post.ShortDescription</p>
+                        <p class="mb-1"><strong>Language:</strong> @post.Language</p>
+                        <p class="mb-1"><strong>Date:</strong> @post.DatePublished.ToShortDateString()</p>
+                        <p class="mb-2"><strong>Author:</strong> @post.AuthorFirstName @post.AuthorLastName</p>
+                        <NavLink href="@editPostLink" class="btn btn-sm btn-primary d-flex justify-content-center align-items-center">Edit</NavLink>
+                    </div>
+                </div>
             }
-        </tbody>
-    </table>
+        }
+    </div>
 </div>

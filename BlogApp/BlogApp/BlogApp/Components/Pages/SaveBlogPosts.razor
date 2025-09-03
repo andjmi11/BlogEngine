@@ -10,6 +10,8 @@
                 <NavLink href="/manage-blogs" class="btn btn-primary">Back to Manage Post</NavLink>
 
             </div>
+            <hr/>
+        <ValidationSummary />
             <div class="card-body">
                 <div class="mb-3">
                     <label class="form-label">Title</label>
@@ -25,7 +27,7 @@
 
                 <div class="mb-3">
                     <label class="form-label">Content</label>
-                        <Blazored.TextEditor.BlazoredTextEditor @ref="@QuillHtml">
+                        <Blazored.TextEditor.BlazoredTextEditor  @ref="@QuillHtml">
                             <ToolbarContent>
                                 <select class="ql-header">
                                     <option selected=""></option>
@@ -53,8 +55,10 @@
                                     <button class="ql-link"></button>
                                 </span>
                             </ToolbarContent>
+                           
                             <EditorContent>
                                 @((MarkupString)_blogModel.Content)
+
                             </EditorContent>
                         </Blazored.TextEditor.BlazoredTextEditor>
                 </div>
