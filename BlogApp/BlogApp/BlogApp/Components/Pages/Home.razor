@@ -1,5 +1,4 @@
 ﻿@page "/"
-@using BlogApp.Components.Helpers;
 <PageTitle>Latest post | Blog</PageTitle>
 
 <div class="container">
@@ -17,59 +16,45 @@
             else
             {
                 <ul class="list-unstyled">
-                    @foreach(var post in posts)
+                    @foreach (var post in posts)
                     {
-                        var color = Utilities.GetRandomColorClasses();
                         var detailPageUrl = $"/blogpostdetails/{post.Id}";
                         <li class="mb-3">
-                            <div class="row">
-                                <div class="row-sm-5 bg-@color rounded d-flex justify-content-start align-content-start">
-                                    <NavLink href="@detailPageUrl" class="fs-5 text-white">@post.Title</NavLink>
-                                </div>
-                                @if (postTags.ContainsKey(post.Id) && postTags[post.Id].Any())
-                                {
-                                    <div class="mb-2">
-                                        @foreach (var tag in postTags[post.Id])
-                                        {
-                                            <span class="badge bg-@color me-1" style="cursor:pointer" @onclick="() => OnTagClicked(tag.Name)">
-                                                @tag.Name
-                                            </span>
-                                        }
+                            <div class="border rounded p-3 mb-3" style="background-color:#f8f9fa;">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <NavLink href="@detailPageUrl" class="fs-5">@post.Title</NavLink>
                                     </div>
-                                }
-                                <div class="row-sm-10 bg-@color bg-opacity-10">
-                                    <h2 class="fs-6">
-                                        @post.ShortDescription
-                                    </h2>
-                                    <small>
-                                        <label>
-                                            @post.AuthorFirstName @post.AuthorLastName
-                                        </label>
-                                        <label>
-                                            @post.DatePublished.ToShortDateString()
-                                        </label>
-                                    </small>
+                                    @if (postTags.ContainsKey(post.Id) && postTags[post.Id].Any())
+                                    {
+                                        <div class="mb-2">
+                                            @foreach (var tag in postTags[post.Id])
+                                            {
+                                                <span class="badge bg-dark me-1 bg-opacity-5" style="cursor:pointer" @onclick="() => OnTagClicked(tag.Name)">
+                                                    @tag.Name
+                                                </span>
+                                            }
+                                        </div>
+                                    }
+                                    <div class="col-sm-12 mt-2">
+                                        <h2 class="fs-6">@post.ShortDescription</h2>
+                                        <small class="d-flex justify-content-between align-items-center">
+                                            <label>@post.DatePublished.ToShortDateString()</label>
+                                            <label>@post.AuthorFirstName @post.AuthorLastName</label>
+                                        </small>
+                                    </div>
                                 </div>
                             </div>
                         </li>
                     }
                 </ul>
+
             }
         </div>
         <div class="col-sm-3">
             <h1 class="fs-3">Filters</h1>
             <hr />
 
-            <!-- Language filter -->
-            <label>Language</label>
-            <select class="form-select mb-2" @onchange="OnLanguageChanged">
-                <option value="">All</option>
-                <option value="en">English</option>
-                <option value="sr">Serbian</option>
-            </select>
-
-
-            <!-- Selected tags -->
             @if (selectedTags.Any())
             {
                 <div class="mb-2">
@@ -82,6 +67,15 @@
                     }
                 </div>
             }
+
+            <label>Language</label>
+            <select class="form-select mb-2" @onchange="OnLanguageChanged">
+                <option value="">All</option>
+                @foreach (var lang in availableLanguages)
+                {
+                    <option value="@lang">@lang</option>
+                }
+            </select>
 
             <button class="btn btn-secondary mt-2" @onclick="ClearAllFilters">Clear All</button>
         </div>

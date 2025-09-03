@@ -84,8 +84,12 @@ namespace BlogApp.Components.Services
             if ((tags != null && tags.Any()) || !string.IsNullOrEmpty(language))
             {
                 var queryParams = new List<string>();
+
                 if (tags != null && tags.Any())
-                    queryParams.AddRange(tags.Select(tag => $"tags={Uri.EscapeDataString(tag)}"));
+                {
+                    var csv = string.Join(",", tags);
+                    queryParams.Add($"tags={Uri.EscapeDataString(csv)}");
+                }
 
                 if (!string.IsNullOrEmpty(language))
                     queryParams.Add($"language={Uri.EscapeDataString(language)}");
@@ -119,6 +123,20 @@ namespace BlogApp.Components.Services
             {
                 Console.WriteLine($"Error fetching tags for blog {blogId}: {ex.Message}");
                 return Enumerable.Empty<TagDTO>();
+            }
+        }
+
+        public async Task<IEnumerable<string>> GetLanguagesAsync()
+        {
+            try
+            {
+                var languages = await _httpClient.GetFromJsonAsync<IEnumerable<string>>("api/BlogPost/languages");
+                return languages ?? Enumerable.Empty<string>();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching languages: {ex.Message}");
+                return Enumerable.Empty<string>();
             }
         }
 

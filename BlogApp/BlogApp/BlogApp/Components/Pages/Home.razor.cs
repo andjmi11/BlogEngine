@@ -13,8 +13,11 @@ namespace BlogApp.Components.Pages
 
         private string? selectedLanguage;
         private List<string> selectedTags = new();
+        private List<string> availableLanguages = new();
+
         protected override async Task OnInitializedAsync()
         {
+            availableLanguages = (await BlogPostService.GetLanguagesAsync()).ToList();
             await LoadPostsAsync();
         }
 
@@ -55,11 +58,12 @@ namespace BlogApp.Components.Pages
             await LoadPostsAsync();
         }
 
-        private void ClearAllFilters()
+        private async void ClearAllFilters()
         {
             selectedTags.Clear();
             selectedLanguage = null;
-            _ = LoadPostsAsync();
+            await LoadPostsAsync();
+            StateHasChanged();
         }
     }
 }

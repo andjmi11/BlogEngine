@@ -79,6 +79,13 @@ namespace BlogAPI.Controllers
             return Ok(tags);
         }
 
+        [HttpGet("languages")]
+        public async Task<ActionResult<IEnumerable<string>>> GetLanguages()
+        {
+            var languages = await _sender.Send(new GetLanguagesQuery());
+            return Ok(languages);
+        }
+
 
 
     }

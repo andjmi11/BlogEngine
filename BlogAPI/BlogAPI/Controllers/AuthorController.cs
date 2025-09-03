@@ -1,8 +1,6 @@
-﻿using BlogAPI.Features.Authors;
-using BlogAPI.Features.Authors.Commands;
+﻿using BlogAPI.Features.Authors.Commands;
 using BlogAPI.Features.Authors.DTOs;
 using BlogAPI.Features.Authors.Queries;
-using BlogAPI.Features.BlogPosts;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -64,7 +62,6 @@ namespace BlogAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateAuthor([FromBody] UpdateAuthorCommand command)
         {
-            //command.Id = id;
             var result = await _sender.Send(command);
 
             if (result == null)
