@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hPowl9vt2QA=",
-  "success": true,
-  "projectFilePath": "C:\\Users\\Anđelija\\OneDrive - Univerzitet u Nisu - Elektronski fakultet\\Radna površina\\BlogEngine\\BlogAPI\\BlogAPI\\BlogAPI.csproj",
+  "dgSpecHash": "fJ7BT4Gjfug=",
+  "success": false,
+  "projectFilePath": "C:\\Downloads\\BlogEngine\\BlogAPI\\BlogAPI\\BlogAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Anđelija\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Anđelija\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
@@ -88,5 +88,17 @@
     "C:\\Users\\Anđelija\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\Anđelija\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1105",
+      "level": "Error",
+      "message": "Unable to find project information for 'C:\\Downloads\\BlogEngine\\BlogApp\\BlogApp\\BlogAPI.Shared\\BlogAPI.Shared.csproj'. If you are using Visual Studio, this may be because the project is unloaded or not part of the current solution so run a restore from the command-line. Otherwise, the project file may be invalid or missing targets required for restore.",
+      "projectPath": "C:\\Downloads\\BlogEngine\\BlogAPI\\BlogAPI\\BlogAPI.csproj",
+      "filePath": "C:\\Downloads\\BlogEngine\\BlogAPI\\BlogAPI\\BlogAPI.csproj",
+      "libraryId": "C:\\Downloads\\BlogEngine\\BlogApp\\BlogApp\\BlogAPI.Shared\\BlogAPI.Shared.csproj",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    }
+  ]
 }
