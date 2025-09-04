@@ -1,4 +1,4 @@
-using BlogAPI.Features.Authors.Commands;
+using BlogAPI.Shared.Features.Authors.Commands;
 using BlogApp.Components;
 using BlogApp.Components.Services;
 

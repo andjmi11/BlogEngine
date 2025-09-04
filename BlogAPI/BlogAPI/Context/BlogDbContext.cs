@@ -3,9 +3,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BlogAPI.Context
 {
-    public class BlogDbContext : DbContext
-    {
-        public BlogDbContext(DbContextOptions options) : base(options) { }
+public class BlogDbContext(DbContextOptions options) : DbContext(options)
+{
         public DbSet<BlogPost> BlogPost { get; set; }
         public DbSet<Author> Author { get; set; }
 

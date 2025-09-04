@@ -1,7 +1,7 @@
-﻿using BlogAPI.Features.BlogPosts.DTOs;
+﻿using BlogAPI.Shared.Features.BlogPosts.DTOs;
 using MediatR;
 
-namespace BlogAPI.Features.BlogPosts.Commands
+namespace BlogAPI.Shared.Features.BlogPosts.Commands
 {
     public class UpdateBlogPostCommand: IRequest<PostDTO>      
     {

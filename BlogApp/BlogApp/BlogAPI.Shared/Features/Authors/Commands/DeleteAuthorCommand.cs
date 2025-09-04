@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace BlogAPI.Features.Authors.Commands
+namespace BlogAPI.Shared.Features.Authors.Commands
 {
     public class DeleteAuthorCommand : IRequest
     {

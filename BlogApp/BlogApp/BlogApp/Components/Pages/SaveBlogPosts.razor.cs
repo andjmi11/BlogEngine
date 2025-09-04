@@ -1,5 +1,5 @@
-﻿using BlogAPI.Features.Authors.DTOs;
-using BlogAPI.Features.BlogPosts.Commands;
+﻿using BlogAPI.Shared.Features.Authors.DTOs;
+using BlogAPI.Shared.Features.BlogPosts.Commands;
 using Blazored.TextEditor;
 using BlogAPI.Features.BlogPosts.Mapping;
 using BlogApp.Components.Helpers;
@@ -12,17 +12,10 @@ namespace BlogApp.Components.Pages
     public partial class SaveBlogPosts : ComponentBase
     {
 
-        private CreateBlogPostCommand _blogModel = new CreateBlogPostCommand
-        {
-            DatePublished = DateTime.Today
-        };
-        private UpdateBlogPostCommand _updateBlogModel = new UpdateBlogPostCommand
-        {
-            DatePublished = DateTime.Today
-        };
-        private List<AuthorDTO> Authors = new();
-        private AlertModal? alertModal;
-        private string _tags;
+        private CreateBlogPostCommand _blogModel = new() { DatePublished = DateTime.Today };
+        private UpdateBlogPostCommand _updateBlogModel = new() { DatePublished = DateTime.Today };
+        private List<AuthorDTO> Authors { get; set; }
+        private AlertModal alertModal;
         public int BlogId => UrlPostId ?? 0;
         BlazoredTextEditor QuillHtml { get; set; }
         string QuillHTMLContent;

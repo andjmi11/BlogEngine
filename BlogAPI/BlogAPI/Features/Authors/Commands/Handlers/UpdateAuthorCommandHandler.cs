@@ -7,16 +7,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BlogAPI.Features.Authors.Commands.Handlers
 {
-    public class UpdateAuthorCommandHandler : IRequestHandler<UpdateAuthorCommand, AuthorDTO>
+    public class UpdateAuthorCommandHandler(BlogDbContext _context) : IRequestHandler<UpdateAuthorCommand, AuthorDTO>
     {
-        private readonly BlogDbContext _context;
-        public UpdateAuthorCommandHandler(BlogDbContext context)
-        {
-            _context = context;
-        }
         public async Task<AuthorDTO> Handle(UpdateAuthorCommand request, CancellationToken cancellationToken)
         {
-            var author = await _context.Author.FirstOrDefaultAsync(a => a.Id == request.Id);
+            var author = await _context.Author.FirstOrDefaultAsync(a => a.Id == request.Id, cancellationToken);
 
             if (author == null)
             {

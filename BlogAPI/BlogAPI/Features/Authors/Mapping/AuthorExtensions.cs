@@ -7,7 +7,7 @@ namespace BlogAPI.Features.Authors.Mapping
     public static class AuthorExtensions
     {
         public static AuthorDTO ToDto(this Author author) =>
-            new AuthorDTO
+            new()
             {
                 Id = author.Id,
                 FirstName = author.FirstName,
@@ -15,7 +15,7 @@ namespace BlogAPI.Features.Authors.Mapping
             };
 
         public static CreateAuthorCommand ToCreateCommand(this AuthorDTO dto) =>
-            new CreateAuthorCommand
+            new()
             {
                 FirstName = dto.FirstName,
                 LastName = dto.LastName

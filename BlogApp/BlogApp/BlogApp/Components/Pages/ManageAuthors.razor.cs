@@ -1,4 +1,4 @@
-﻿using BlogAPI.Features.Authors.DTOs;
+﻿using BlogAPI.Shared.Features.Authors.DTOs;
 using BlogApp.Components.Helpers;
 using BlogApp.Components.Pages.Forms;
 using BlogApp.Components.Services;
@@ -16,7 +16,7 @@ namespace BlogApp.Components.Pages
         [Inject] public AuthorService AuthorService { get; set; }
         [Inject] public IJSRuntime JSRuntime { get; set; }
 
-        private AlertModal? alertModal;
+        private AlertModal alertModal;
 
 
         protected override async Task OnInitializedAsync()

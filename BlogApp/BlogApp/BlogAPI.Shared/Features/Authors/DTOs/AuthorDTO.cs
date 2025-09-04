@@ -1,4 +1,4 @@
-﻿namespace BlogAPI.Features.Authors.DTOs
+﻿namespace BlogAPI.Shared.Features.Authors.DTOs
 {
     public class AuthorDTO
     {

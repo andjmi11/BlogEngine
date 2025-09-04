@@ -8,14 +8,8 @@ namespace BlogAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class AuthorController : ControllerBase
+    public class AuthorController(ISender _sender) : ControllerBase
     {
-        private ISender _sender;
-        public AuthorController(ISender sender)
-        {
-            _sender = sender;
-        }
-
         [HttpPost]
         public async Task<ActionResult<int>> CreateAuthor([FromBody] CreateAuthorCommand command)
         {
@@ -28,7 +22,7 @@ namespace BlogAPI.Controllers
             var author = await _sender.Send(command);
             return CreatedAtAction(
                 nameof(GetAuthorById),
-                new { Id = author.Id },
+                new { author.Id },
                 author);
         }
 

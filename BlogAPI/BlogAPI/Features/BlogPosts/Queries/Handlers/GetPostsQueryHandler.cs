@@ -7,15 +7,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BlogAPI.Features.BlogPosts.Queries.Handlers
 {
-    public class GetPostsQueryHandler : IRequestHandler<GetPostsQuery, List<PostDTO>>
+    public class GetPostsQueryHandler(BlogDbContext _context) : IRequestHandler<GetPostsQuery, List<PostDTO>>
     {
-        private readonly BlogDbContext _context;
-
-        public GetPostsQueryHandler(BlogDbContext context)
-        {
-            _context = context;
-        }
-
         public async Task<List<PostDTO>> Handle(GetPostsQuery request, CancellationToken cancellationToken)
         {
             var posts = _context.BlogPost

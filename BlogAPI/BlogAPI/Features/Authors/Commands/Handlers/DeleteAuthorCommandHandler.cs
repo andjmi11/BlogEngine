@@ -4,16 +4,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BlogAPI.Features.Authors.Commands.Handlers
 {
-    public class DeleteAuthorCommandHandler : IRequestHandler<DeleteAuthorCommand>
+    public class DeleteAuthorCommandHandler(BlogDbContext _context) : IRequestHandler<DeleteAuthorCommand>
     {
-        private readonly BlogDbContext _context;
-        public DeleteAuthorCommandHandler(BlogDbContext context)
-        {
-            _context = context;
-        }
         public async Task Handle(DeleteAuthorCommand request, CancellationToken cancellationToken)
         {
-            var author = await _context.Author.FirstOrDefaultAsync(a=> a.Id == request.Id);
+            var author = await _context.Author.FirstOrDefaultAsync(a=> a.Id == request.Id, cancellationToken);
 
 
             if (author != null)

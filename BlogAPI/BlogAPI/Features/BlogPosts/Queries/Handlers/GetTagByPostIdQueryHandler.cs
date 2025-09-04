@@ -6,14 +6,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BlogAPI.Features.BlogPosts.Queries.Handlers
 {
-    public class GetTagByPostIdQueryHandler : IRequestHandler<GetTagByPostIdQuery, List<TagDTO>>
+    public class GetTagByPostIdQueryHandler(BlogDbContext _context) : IRequestHandler<GetTagByPostIdQuery, List<TagDTO>>
     {
-        private readonly BlogDbContext _context;
-
-        public GetTagByPostIdQueryHandler(BlogDbContext context)
-        {
-            _context = context;
-        }
         public async Task<List<TagDTO>> Handle(GetTagByPostIdQuery request, CancellationToken cancellationToken)
         {
             return await _context.Set<BlogTags>()

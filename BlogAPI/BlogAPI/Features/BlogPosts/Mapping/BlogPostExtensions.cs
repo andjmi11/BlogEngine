@@ -8,7 +8,7 @@ namespace BlogAPI.Features.BlogPosts.Mapping
     public static class BlogPostExtensions
     {
         public static PostDTO ToDto(this BlogPost post) =>
-            new PostDTO
+            new()
             {
                 Id = post.Id,
                 Title = post.Title,
@@ -23,7 +23,7 @@ namespace BlogAPI.Features.BlogPosts.Mapping
                 AuthorLastName = post.Author?.LastName ?? string.Empty,
             };
         public static UpdateBlogPostCommand ToUpdateCommand(this CreateBlogPostCommand create) =>
-            new UpdateBlogPostCommand
+            new()
             {
                 Title = create.Title,
                 ShortDescription = create.ShortDescription,

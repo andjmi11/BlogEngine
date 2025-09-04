@@ -11,14 +11,8 @@ namespace BlogAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BlogPostController : Controller
+    public class BlogPostController(ISender _sender) : Controller
     {
-        private ISender _sender;
-        public BlogPostController(ISender sender)
-        {
-            _sender = sender;
-        }
-
         [HttpPost]
         public async Task<ActionResult<int>> CreateBlogPost(CreateBlogPostCommand command)
         {
@@ -46,11 +40,11 @@ namespace BlogAPI.Controllers
         }
         [HttpGet("get-all")]
         public async Task<IEnumerable<PostDTO>> GetPosts(
-            [FromQuery] string? tags,
-            [FromQuery] string? language,
-            [FromQuery] int? authorId,
-            [FromQuery] DateTime? dateFrom,
-            [FromQuery] DateTime? dateTo)
+            [FromQuery] string tags,
+            [FromQuery] string language,
+            [FromQuery] int authorId,
+            [FromQuery] DateTime dateFrom,
+            [FromQuery] DateTime dateTo)
         {
             var posts = await _sender.Send(new GetPostsQuery
             {
@@ -82,7 +76,7 @@ namespace BlogAPI.Controllers
         {
             var tags = await _sender.Send(new GetTagByPostIdQuery(id));
 
-            if (tags == null || !tags.Any())
+            if (tags == null || tags.Count == 0)
                 return NotFound($"No tags found for blog post with id {id}");
 
             return Ok(tags);

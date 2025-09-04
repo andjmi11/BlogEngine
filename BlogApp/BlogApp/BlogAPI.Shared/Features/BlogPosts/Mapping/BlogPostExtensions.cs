@@ -1,11 +1,11 @@
-﻿using BlogAPI.Features.BlogPosts.Commands;
+﻿using BlogAPI.Shared.Features.BlogPosts.Commands;
 
 namespace BlogAPI.Features.BlogPosts.Mapping
 {
     public static class BlogPostExtensions
     {
         public static UpdateBlogPostCommand ToUpdateCommand(this CreateBlogPostCommand create) =>
-            new UpdateBlogPostCommand
+            new()
             {
                 Title = create.Title,
                 ShortDescription = create.ShortDescription,

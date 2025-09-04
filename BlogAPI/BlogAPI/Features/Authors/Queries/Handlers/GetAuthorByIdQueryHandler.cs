@@ -6,20 +6,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BlogAPI.Features.Authors.Queries.Handlers
 {
-    public class GetAuthorByIdQueryHandler: IRequestHandler<GetAuthorByIdQuery, AuthorDTO>
+    public class GetAuthorByIdQueryHandler(BlogDbContext _context) : IRequestHandler<GetAuthorByIdQuery, AuthorDTO>
     {
-        private readonly BlogDbContext _context;
-
-        public GetAuthorByIdQueryHandler(BlogDbContext context)
-        {
-            _context = context;
-        }
-
        public async Task<AuthorDTO> Handle(GetAuthorByIdQuery request, CancellationToken cancellationToken)
         {
             var author =await  _context.Author
                 .AsNoTracking()
-                .FirstOrDefaultAsync(a => a.Id == request.Id);
+                .FirstOrDefaultAsync(a => a.Id == request.Id, cancellationToken);
 
             if (author == null)
             {

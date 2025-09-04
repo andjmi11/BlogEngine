@@ -2,21 +2,14 @@
 using BlogAPI.Features.BlogPosts.DTOs;
 using BlogAPI.Features.BlogPosts.Mapping;
 using BlogAPI.Helpers;
+using BlogAPI.Models;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace BlogAPI.Features.BlogPosts.Commands.Handlers
 {
-    public class UpdateBlogPostCommandHandler : IRequestHandler<UpdateBlogPostCommand, PostDTO>
+    public class UpdateBlogPostCommandHandler(BlogDbContext _context, Helper _helper) : IRequestHandler<UpdateBlogPostCommand, PostDTO>
     {
-        private readonly BlogDbContext _context;
-        private readonly Helper _helper;
-        public UpdateBlogPostCommandHandler(BlogDbContext context, Helper helper)
-        {
-            _context = context;
-            _helper = helper;
-        }
-
         public async Task<PostDTO> Handle(UpdateBlogPostCommand request, CancellationToken cancellationToken)
         {
             var blogPost = await _context.BlogPost
@@ -24,7 +17,7 @@ namespace BlogAPI.Features.BlogPosts.Commands.Handlers
                 .Include(b => b.Author)
                 .FirstOrDefaultAsync(b => b.Id == request.Id, cancellationToken);
 
-            if (blogPost == null) throw new Exception("Blog post not found.");
+            _ = blogPost ?? throw new Exception("Blog post is null.");
 
             blogPost.Title = request.Title;
             blogPost.ShortDescription = request.ShortDescription;
@@ -35,7 +28,7 @@ namespace BlogAPI.Features.BlogPosts.Commands.Handlers
             if(blogPost.Author.Id != request.AuthorId)
             {
                 var author = await _context.Author.FindAsync(request.AuthorId);
-                if (author == null) throw new Exception("Author not found");
+                _ = author ?? throw new Exception("Author not found");
 
                 blogPost.Author = author;
             }

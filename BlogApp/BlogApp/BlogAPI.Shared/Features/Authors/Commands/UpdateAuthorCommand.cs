@@ -1,7 +1,7 @@
-﻿using BlogAPI.Features.Authors.DTOs;
+﻿using BlogAPI.Shared.Features.Authors.DTOs;
 using MediatR;
 
-namespace BlogAPI.Features.Authors.Commands
+namespace BlogAPI.Shared.Features.Authors.Commands
 {
     public class UpdateAuthorCommand:IRequest<AuthorDTO>
     {

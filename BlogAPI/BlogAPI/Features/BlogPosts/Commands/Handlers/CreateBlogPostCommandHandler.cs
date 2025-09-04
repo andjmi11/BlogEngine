@@ -7,19 +7,13 @@ using MediatR;
 
 namespace BlogAPI.Features.BlogPosts.Commands.Handlers
 {
-    public class CreateBlogPostCommandHandler : IRequestHandler<CreateBlogPostCommand, PostDTO>
+    public class CreateBlogPostCommandHandler(BlogDbContext _context, Helper _helper) : IRequestHandler<CreateBlogPostCommand, PostDTO>
     {
-        private readonly BlogDbContext _context;
-        private readonly Helper _helper;
-        public CreateBlogPostCommandHandler(BlogDbContext context, Helper helper)
-        {
-            _context = context;
-            _helper = helper;
-        }
         public async Task<PostDTO> Handle(CreateBlogPostCommand request, CancellationToken cancellationToken)
         {
             var author = await _context.Author.FindAsync(request.AuthorId);
-            if (author == null) throw new Exception("Author is null.");
+            _ = author ?? throw new Exception("Author is null.");
+
 
             var blogPost = new BlogPost
             {
@@ -33,7 +27,7 @@ namespace BlogAPI.Features.BlogPosts.Commands.Handlers
             };
 
             _context.BlogPost.Add(blogPost);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(cancellationToken);
 
             return blogPost.ToDto();
 

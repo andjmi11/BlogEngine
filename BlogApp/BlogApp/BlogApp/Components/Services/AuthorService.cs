@@ -1,5 +1,5 @@
-﻿using BlogAPI.Features.Authors.Commands;
-using BlogAPI.Features.Authors.DTOs;
+﻿using BlogAPI.Shared.Features.Authors.Commands;
+using BlogAPI.Shared.Features.Authors.DTOs;
 using BlogApp.Components.Helpers;
 using BlogApp.Components.Pages.Forms;
 

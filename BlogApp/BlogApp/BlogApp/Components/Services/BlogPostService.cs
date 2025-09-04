@@ -1,9 +1,6 @@
-﻿using BlogAPI.Features.BlogPosts.Commands;
-using BlogAPI.Features.BlogPosts.DTOs;
+﻿using BlogAPI.Shared.Features.BlogPosts.Commands;
+using BlogAPI.Shared.Features.BlogPosts.DTOs;
 using BlogApp.Components.Helpers;
-using System.Net.Http;
-using System.Net.Http.Json;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace BlogApp.Components.Services
 {
@@ -79,8 +76,8 @@ namespace BlogApp.Components.Services
         }
 
         public async Task<IEnumerable<PostDTO>> GetPostsAsync(
-            List<string>? tags = null,
-            string? language = null,
+            List<string> tags = null,
+            string language = null,
             int? authorId = null,
             DateTime? dateFrom = null,
             DateTime? dateTo = null){ 
@@ -112,7 +109,7 @@ namespace BlogApp.Components.Services
 
             return await _httpClient.GetFromJsonAsync<IEnumerable<PostDTO>>(url) ?? Enumerable.Empty<PostDTO>();
         }
-        public async Task<PostDTO?> GetPostByIdAsync(int id)
+        public async Task<PostDTO> GetPostByIdAsync(int id)
         {
             try
             {

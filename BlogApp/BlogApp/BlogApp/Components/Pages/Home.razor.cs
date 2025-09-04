@@ -1,5 +1,5 @@
-﻿using BlogAPI.Features.Authors.DTOs;
-using BlogAPI.Features.BlogPosts.DTOs;
+﻿using BlogAPI.Shared.Features.Authors.DTOs;
+using BlogAPI.Shared.Features.BlogPosts.DTOs;
 using BlogApp.Components.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
@@ -9,21 +9,21 @@ namespace BlogApp.Components.Pages
     public partial class Home:ComponentBase
     {
         private IEnumerable<PostDTO> posts = null;
-        private Dictionary<int, IEnumerable<TagDTO>> postTags = new();
+        private readonly Dictionary<int, IEnumerable<TagDTO>> postTags = new();
         [Inject] public BlogPostService BlogPostService { get; set; }
         [Inject] public AuthorService AuthorService { get; set; }
         [Inject] public IJSRuntime JS { get; set; }
 
-        private string? selectedLanguage;
-        private List<string> selectedTags = new();
+        private string selectedLanguage;
+        private readonly List<string> selectedTags = new();
         private List<string> availableLanguages = new();
         private List<AuthorDTO> availableAuthors = new();
         private int? selectedAuthorId;
         private DateTime? dateFrom;
         private DateTime? dateTo;
 
-        private string dateFromString;
-        private string dateToString;
+        private readonly string dateFromString;
+        private readonly string dateToString;
 
         private async Task ApplyFiltersAndClose()
         {
