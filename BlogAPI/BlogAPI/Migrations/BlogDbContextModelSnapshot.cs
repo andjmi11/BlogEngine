@@ -97,7 +97,6 @@ namespace BlogAPI.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("TagName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

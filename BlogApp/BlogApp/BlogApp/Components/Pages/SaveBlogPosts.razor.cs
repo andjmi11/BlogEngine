@@ -1,5 +1,6 @@
 ﻿using BlogAPI.Features.Authors.DTOs;
 using BlogAPI.Features.BlogPosts.Commands;
+using Blazored.TextEditor;
 using BlogAPI.Features.BlogPosts.Mapping;
 using BlogApp.Components.Helpers;
 using BlogApp.Components.Pages.Forms;
@@ -19,17 +20,31 @@ namespace BlogApp.Components.Pages
         {
             DatePublished = DateTime.Today
         };
+        private List<AuthorDTO> Authors = new();
+        private AlertModal? alertModal;
+        private string _tags;
+        public int BlogId => UrlPostId ?? 0;
+        BlazoredTextEditor QuillHtml { get; set; }
+        string QuillHTMLContent;
         [Parameter] public int? UrlPostId { get; set; }
         [Inject] public BlogPostService BlogPostService { get; set; }
         [Inject] public AuthorService AuthorService { get; set; }
         [Inject] public IJSRuntime JSRuntime { get; set; }
         [Inject] public NavigationManager NavigationManager { get; set; }
-        public int BlogId => UrlPostId ?? 0;
-        private string _tags;
-        private List<AuthorDTO> Authors = new();
-        Blazored.TextEditor.BlazoredTextEditor QuillHtml { get; set; }
-        string QuillHTMLContent;
-        private AlertModal? alertModal;
+
+        public async Task GetHTML()
+        {
+            QuillHTMLContent = await this.QuillHtml.GetHTML();
+        }
+
+        public async Task SetHTML()
+        {
+            string QuillContent =
+                @"<a href='http://BlazorHelpWebsite.com/'>" +
+                "<img src='images/BlazorHelpWebsite.gif' /></a>";
+
+            await this.QuillHtml.LoadHTMLContent(QuillContent);
+        }
         protected override async Task OnInitializedAsync()
         {
             Authors = await AuthorService.GetAllAuthorsAsync();
@@ -54,20 +69,6 @@ namespace BlogApp.Components.Pages
                 }
             }
         }
-
-        public async Task GetHTML()
-        {
-            QuillHTMLContent = await this.QuillHtml.GetHTML();
-        }
-
-        public async Task SetHTML()
-        {
-            string QuillContent =
-                @"<a href='http://BlazorHelpWebsite.com/'>" +
-                "<img src='images/BlazorHelpWebsite.gif' /></a>";
-
-            await this.QuillHtml.LoadHTMLContent(QuillContent);
-        }
         private async Task SaveBlogAsync()
         {
             _blogModel.Content = await QuillHtml.GetHTML();
@@ -86,23 +87,20 @@ namespace BlogApp.Components.Pages
 
             if (result?.Status == true)
             {
-                if (alertModal != null)
-                {
-                    alertModal.OnClose = EventCallback.Factory.Create(this, () =>
-                    {
-                        NavigationManager.NavigateTo("/manage-blogs", forceLoad: true);
-                    });
-
-                    await alertModal.ShowAsync("Blog post saved successfully!");
-                }
+                await AlertAsync("Blog post saved successfully!");
             }
             else
             {
-                if (alertModal != null)
-                {
-                    await alertModal.ShowAsync($"Error: {result?.ErrorMessage ?? "Unknown error"}");
-                }
+                await AlertAsync(
+                    $"Error: {result?.ErrorMessage ?? "Unknown error"}"
+                );
             }
+        }
+
+        private void Cancel()
+        {
+            _blogModel = new CreateBlogPostCommand();
+            _ = QuillHtml.LoadHTMLContent(string.Empty);
         }
 
         private async Task DeleteBlogPostAsync()
@@ -113,29 +111,27 @@ namespace BlogApp.Components.Pages
 
                 if (result.Status == true)
                 {
-                    if (alertModal != null)
-                    {
-                        alertModal.OnClose = EventCallback.Factory.Create(this, () =>
-                        {
-                            NavigationManager.NavigateTo("/manage-blogs", forceLoad: true);
-                        });
-
-                        await alertModal.ShowAsync("Blog post deleted successfully!");
-                    }
+                    await AlertAsync("Blog post saved successfully!");
                 }
                 else
                 {
-                    if (alertModal != null)
-                    {
-                        await alertModal.ShowAsync($"Error: {result.ErrorMessage ?? "Unknown error"}");
-                    }
+                    await AlertAsync(
+                        $"Error: {result.ErrorMessage ?? "Unknown error"}"
+                    );
                 }
             }
         }
-        private void Cancel()
+
+        private async Task AlertAsync(string message)
         {
-            _blogModel = new CreateBlogPostCommand();  
-            _ = QuillHtml.LoadHTMLContent(string.Empty); 
+            if (alertModal != null)
+            {
+                alertModal.OnClose = EventCallback.Factory.Create(this, () =>
+                {
+                    NavigationManager.NavigateTo("/manage-blogs", forceLoad: true);
+                });
+                await alertModal.ShowAsync(message);
+            }
         }
     }
 }

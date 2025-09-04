@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlogAPI.Migrations
 {
     [DbContext(typeof(BlogDbContext))]
-    [Migration("20250803133709_ModelsUpdate_AddingTags")]
-    partial class ModelsUpdate_AddingTags
+    [Migration("20250904164137_DbMigration")]
+    partial class DbMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -85,7 +85,7 @@ namespace BlogAPI.Migrations
 
                     b.HasIndex("AuthorId");
 
-                    b.ToTable("Blog");
+                    b.ToTable("BlogPost");
                 });
 
             modelBuilder.Entity("BlogAPI.Models.BlogTags", b =>
@@ -100,7 +100,6 @@ namespace BlogAPI.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("TagName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

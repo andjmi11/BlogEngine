@@ -25,4 +25,8 @@
     <ProjectReference Include="..\..\BlogApp\BlogApp\BlogAPI.Shared\BlogAPI.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

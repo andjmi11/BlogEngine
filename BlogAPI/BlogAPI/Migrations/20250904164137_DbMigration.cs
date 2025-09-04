@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BlogAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class Models : Migration
+    public partial class DbMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -26,7 +26,7 @@ namespace BlogAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Blog",
+                name: "BlogPost",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -35,32 +35,59 @@ namespace BlogAPI.Migrations
                     ShortDescription = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Language = table.Column<string>(type: "nvarchar(2)", maxLength: 2, nullable: false),
-                    Tags = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DatePublished = table.Column<DateTime>(type: "datetime2", nullable: false),
                     AuthorId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Blog", x => x.Id);
+                    table.PrimaryKey("PK_BlogPost", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Blog_Author_AuthorId",
+                        name: "FK_BlogPost_Author_AuthorId",
                         column: x => x.AuthorId,
                         principalTable: "Author",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "BlogTags",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BlogPostId = table.Column<int>(type: "int", nullable: false),
+                    TagName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BlogTags", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_BlogTags_BlogPost_BlogPostId",
+                        column: x => x.BlogPostId,
+                        principalTable: "BlogPost",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
-                name: "IX_Blog_AuthorId",
-                table: "Blog",
+                name: "IX_BlogPost_AuthorId",
+                table: "BlogPost",
                 column: "AuthorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BlogTags_BlogPostId",
+                table: "BlogTags",
+                column: "BlogPostId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Blog");
+                name: "BlogTags");
+
+            migrationBuilder.DropTable(
+                name: "BlogPost");
 
             migrationBuilder.DropTable(
                 name: "Author");
