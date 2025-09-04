@@ -1,25 +1,29 @@
 ﻿using BlogAPI.Features.Authors.DTOs;
 using BlogApp.Components.Helpers;
+using BlogApp.Components.Pages.Forms;
 using BlogApp.Components.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
+
 namespace BlogApp.Components.Pages
 {
     public partial class ManageAuthors : ComponentBase
     {
-        private const string _authorFormDialog = "category-form";
         private bool loading = false;
         private IEnumerable<AuthorDTO> authors = null;
         private AuthorDTO editAuthor = new();
-        [Inject]
-        public AuthorService AuthorService { get; set; }
-        [Inject]
-        public IJSRuntime JSRuntime { get; set; }
-  
+
+        [Inject] public AuthorService AuthorService { get; set; }
+        [Inject] public IJSRuntime JSRuntime { get; set; }
+
+        private AlertModal? alertModal;
+
+
         protected override async Task OnInitializedAsync()
         {
             await LoadAuthorsAsync();
         }
+
         private async Task LoadAuthorsAsync()
         {
             loading = true;
@@ -32,6 +36,7 @@ namespace BlogApp.Components.Pages
                 loading = false;
             }
         }
+
         private async Task OnSaveAuthor(MethodResult saveAuthorResult)
         {
             if (saveAuthorResult.Status)
@@ -57,10 +62,12 @@ namespace BlogApp.Components.Pages
                 await AlertAsync(deleteAuthorResult.ErrorMessage);
             }
         }
-
         private async Task AlertAsync(string message)
         {
-            await JSRuntime.InvokeVoidAsync("window.alert", message);
+            if (alertModal != null)
+            {
+                await alertModal.ShowAsync(message);
+            }
         }
 
         private async Task OpenAuthorForm()
@@ -79,7 +86,5 @@ namespace BlogApp.Components.Pages
             editAuthor = authorUpdate.Clone();
             await OpenAuthorForm();
         }
-
-
     }
 }

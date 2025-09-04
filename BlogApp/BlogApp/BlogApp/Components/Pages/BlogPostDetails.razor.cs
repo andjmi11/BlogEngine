@@ -6,10 +6,8 @@ namespace BlogApp.Components.Pages
 {
     public partial class BlogPostDetails:ComponentBase
     {
-        [Parameter]
-        public int urlPostId { get; set; }
-        [Inject]
-        private BlogPostService BlogPostService { get; set; }
+        [Parameter] public int urlPostId { get; set; }
+        [Inject] private BlogPostService BlogPostService { get; set; }
         private PostDTO post = new();
         private bool notFound = false;
 

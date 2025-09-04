@@ -14,7 +14,6 @@ namespace BlogAPI.Features.BlogPosts.Commands
         [StringLength(200, ErrorMessage = "Short description cannot exceed 200 characters")]
         public string ShortDescription { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Content is required")]
         public string Content { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Language is required")]

@@ -10,10 +10,10 @@ namespace BlogApp.Components.Pages
     {
         private IEnumerable<PostDTO> posts = null;
         private Dictionary<int, IEnumerable<TagDTO>> postTags = new();
-        [Inject]
-        public BlogPostService BlogPostService { get; set; }
-        [Inject]
-        public AuthorService AuthorService { get; set; }
+        [Inject] public BlogPostService BlogPostService { get; set; }
+        [Inject] public AuthorService AuthorService { get; set; }
+        [Inject] public IJSRuntime JS { get; set; }
+
         private string? selectedLanguage;
         private List<string> selectedTags = new();
         private List<string> availableLanguages = new();
@@ -21,8 +21,9 @@ namespace BlogApp.Components.Pages
         private int? selectedAuthorId;
         private DateTime? dateFrom;
         private DateTime? dateTo;
-        [Inject]
-        public IJSRuntime JS { get; set; }
+
+        private string dateFromString;
+        private string dateToString;
 
         private async Task ApplyFiltersAndClose()
         {
@@ -75,7 +76,27 @@ namespace BlogApp.Components.Pages
 
             await LoadPostsAsync();
         }
+        private async Task OnDateFromChanged(ChangeEventArgs e)
+        {
+            if (DateTime.TryParse(e.Value?.ToString(), out var result))
+                dateFrom = result;
 
+            else
+                dateFrom = null;
+
+            await LoadPostsAsync();
+        }
+
+        private async Task OnDateToChanged(ChangeEventArgs e)
+        {
+            if (DateTime.TryParse(e.Value?.ToString(), out var result))
+                dateTo = result;
+
+            else
+                dateTo = null;
+
+            await LoadPostsAsync();
+        }
         private async Task RemoveTag(string tag)
         {
             selectedTags.Remove(tag);

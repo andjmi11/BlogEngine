@@ -51,10 +51,12 @@
                 </select>
 
                 <label>Date From</label>
-                <input type="date" class="form-control mb-2" @bind="dateFrom" />
+                <input type="date" class="form-control mb-2" value="@dateFromString"
+                       @onchange="OnDateFromChanged" />
 
                 <label>Date To</label>
-                <input type="date" class="form-control mb-2" @bind="dateTo" />
+                <input type="date" class="form-control mb-2" value="@dateToString"
+                       @onchange="OnDateToChanged" />
 
                 <div class="d-flex justify-content-between mt-3">
                     <button class="btn btn-secondary" @onclick="ClearAllFilters">Clear All</button>
@@ -69,7 +71,7 @@
             <h1 class="fs-3">Latest posts</h1>
             <hr />
 
-            @if (posts == null)
+            @if (posts == null || posts.Count() == 0)
             {
                 <div class="d-flex justify-content-center flex-column align-items-center" style="min-height:250px">
                     <h3>No blog posts found.</h3>
@@ -122,7 +124,7 @@
             @if (selectedTags.Any())
             {
                 <div class="mb-2">
-                    <label>Selected tags:</label>
+                    <label class="me-1">Selected tags:</label>
                     @foreach (var tag in selectedTags)
                     {
                         <span class="badge bg-primary me-1" style="cursor:pointer" @onclick="() => RemoveTag(tag)">
@@ -151,10 +153,12 @@
             </select>
 
             <label>Date From</label>
-            <input type="date" class="form-control mb-2" @bind="dateFrom" />
+            <input type="date" class="form-control mb-2" value="@dateFromString"
+                   @onchange="OnDateFromChanged" />
 
             <label>Date To</label>
-            <input type="date" class="form-control mb-2" @bind="dateTo" />
+            <input type="date" class="form-control mb-2" value="@dateToString"
+                   @onchange="OnDateToChanged" />
 
             <button class="btn btn-secondary mt-2" @onclick="ClearAllFilters">Clear All</button>
         </div>

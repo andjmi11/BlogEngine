@@ -10,10 +10,8 @@ namespace BlogApp.Components.Pages
     {
         private bool loading = false;
         private IEnumerable<PostDTO> posts = null;
-        [Inject]
-        public BlogPostService BlogPostService { get; set; }
-        [Inject]
-        public IJSRuntime JSRuntime { get; set; }
+        [Inject] public BlogPostService BlogPostService { get; set; }
+        [Inject] public IJSRuntime JSRuntime { get; set; }
 
         protected override async Task OnInitializedAsync()
         {

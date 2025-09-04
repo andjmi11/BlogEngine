@@ -3,22 +3,18 @@ using BlogAPI.Features.Authors.DTOs;
 using BlogApp.Components.Helpers;
 using BlogApp.Components.Services;
 using Microsoft.AspNetCore.Components;
+using BlogAPI.Features.Authors.Mapping;
 
 namespace BlogApp.Components.Pages.Forms
 {
     public partial class SaveAuthorForm : ComponentBase
     {
-        [Parameter]
-        public AuthorDTO? AuthorDTO { get; set; }
-        [Parameter]
-        public EventCallback<MethodResult> OnSaveAuthor { get; set; }
-        [Parameter]
-        public EventCallback OnCloseForm { get; set; }
-        [Parameter]
-        public EventCallback<MethodResult> OnDeleteAuthor { get; set; }
+        [Parameter] public AuthorDTO? AuthorDTO { get; set; }
+        [Parameter] public EventCallback<MethodResult> OnSaveAuthor { get; set; }
+        [Parameter] public EventCallback OnCloseForm { get; set; }
+        [Parameter] public EventCallback<MethodResult> OnDeleteAuthor { get; set; }
 
-        [Inject]
-        public AuthorService AuthorService { get; set; }
+        [Inject] public AuthorService AuthorService { get; set; }
 
         private UpdateAuthorCommand _updatedAuthorModel = new();
         private CreateAuthorCommand _authorModel = new();
@@ -28,8 +24,7 @@ namespace BlogApp.Components.Pages.Forms
             base.OnParametersSet();
             if (AuthorDTO != null && AuthorDTO.Id > 0)
             {
-                _authorModel.FirstName = AuthorDTO.FirstName;
-                _authorModel.LastName = AuthorDTO.LastName;
+                _authorModel = AuthorDTO.ToCreateCommand();
             }
         }
         private async Task SaveAuthorAsync()

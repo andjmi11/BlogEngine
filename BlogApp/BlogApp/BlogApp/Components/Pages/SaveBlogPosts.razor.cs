@@ -1,7 +1,8 @@
 ﻿using BlogAPI.Features.Authors.DTOs;
 using BlogAPI.Features.BlogPosts.Commands;
-using BlogAPI.Features.BlogPosts.DTOs;
+using BlogAPI.Features.BlogPosts.Mapping;
 using BlogApp.Components.Helpers;
+using BlogApp.Components.Pages.Forms;
 using BlogApp.Components.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
@@ -18,37 +19,17 @@ namespace BlogApp.Components.Pages
         {
             DatePublished = DateTime.Today
         };
+        [Parameter] public int? UrlPostId { get; set; }
+        [Inject] public BlogPostService BlogPostService { get; set; }
+        [Inject] public AuthorService AuthorService { get; set; }
+        [Inject] public IJSRuntime JSRuntime { get; set; }
+        [Inject] public NavigationManager NavigationManager { get; set; }
+        public int BlogId => UrlPostId ?? 0;
         private string _tags;
         private List<AuthorDTO> Authors = new();
-        [Parameter]
-        public int? UrlPostId { get; set; }
-        public int BlogId => UrlPostId ?? 0;
-        [Inject]
-        public BlogPostService BlogPostService { get; set; }
-        [Inject]
-        public AuthorService AuthorService { get; set; }
-        [Inject]
-        public IJSRuntime JSRuntime { get; set; }
-
-
-        [Inject]
-        public NavigationManager NavigationManager { get; set; }
         Blazored.TextEditor.BlazoredTextEditor QuillHtml { get; set; }
         string QuillHTMLContent;
-
-        public async Task GetHTML()
-        {
-            QuillHTMLContent = await this.QuillHtml.GetHTML();
-        }
-
-        public async Task SetHTML()
-        {
-            string QuillContent =
-                @"<a href='http://BlazorHelpWebsite.com/'>" +
-                "<img src='images/BlazorHelpWebsite.gif' /></a>";
-
-            await this.QuillHtml.LoadHTMLContent(QuillContent);
-        }
+        private AlertModal? alertModal;
         protected override async Task OnInitializedAsync()
         {
             Authors = await AuthorService.GetAllAuthorsAsync();
@@ -73,6 +54,20 @@ namespace BlogApp.Components.Pages
                 }
             }
         }
+
+        public async Task GetHTML()
+        {
+            QuillHTMLContent = await this.QuillHtml.GetHTML();
+        }
+
+        public async Task SetHTML()
+        {
+            string QuillContent =
+                @"<a href='http://BlazorHelpWebsite.com/'>" +
+                "<img src='images/BlazorHelpWebsite.gif' /></a>";
+
+            await this.QuillHtml.LoadHTMLContent(QuillContent);
+        }
         private async Task SaveBlogAsync()
         {
             _blogModel.Content = await QuillHtml.GetHTML();
@@ -81,13 +76,7 @@ namespace BlogApp.Components.Pages
 
             if (BlogId > 0)
             {
-                _updateBlogModel.Title = _blogModel.Title;
-                _updateBlogModel.ShortDescription = _blogModel.ShortDescription;
-                _updateBlogModel.Content = _blogModel.Content;
-                _updateBlogModel.Language = _blogModel.Language;
-                _updateBlogModel.Tags = _blogModel.Tags;
-                _updateBlogModel.DatePublished = _blogModel.DatePublished;
-                _updateBlogModel.AuthorId = _blogModel.AuthorId;
+                _updateBlogModel = _blogModel.ToUpdateCommand();
                 result = await BlogPostService.UpdateBlogPostAsync(BlogId, _updateBlogModel);
             }
             else
@@ -97,22 +86,23 @@ namespace BlogApp.Components.Pages
 
             if (result?.Status == true)
             {
-                await JSRuntime.InvokeVoidAsync("alert", "Blog post saved successfully!");
-                NavigationManager.NavigateTo("/manage-blogs", forceLoad: true);
+                if (alertModal != null)
+                {
+                    alertModal.OnClose = EventCallback.Factory.Create(this, () =>
+                    {
+                        NavigationManager.NavigateTo("/manage-blogs", forceLoad: true);
+                    });
+
+                    await alertModal.ShowAsync("Blog post saved successfully!");
+                }
             }
             else
             {
-                await JSRuntime.InvokeVoidAsync(
-                    "alert",
-                    $"Error: {result?.ErrorMessage ?? "Unknown error"}"
-                );
+                if (alertModal != null)
+                {
+                    await alertModal.ShowAsync($"Error: {result?.ErrorMessage ?? "Unknown error"}");
+                }
             }
-        }
-
-        private void Cancel()
-        {
-            _blogModel = new CreateBlogPostCommand();  
-            _ = QuillHtml.LoadHTMLContent(string.Empty); 
         }
 
         private async Task DeleteBlogPostAsync()
@@ -123,20 +113,29 @@ namespace BlogApp.Components.Pages
 
                 if (result.Status == true)
                 {
-                    await JSRuntime.InvokeVoidAsync("alert", "Blog post saved successfully!");
-                    NavigationManager.NavigateTo("/manage-blogs");
+                    if (alertModal != null)
+                    {
+                        alertModal.OnClose = EventCallback.Factory.Create(this, () =>
+                        {
+                            NavigationManager.NavigateTo("/manage-blogs", forceLoad: true);
+                        });
+
+                        await alertModal.ShowAsync("Blog post deleted successfully!");
+                    }
                 }
                 else
                 {
-                    await JSRuntime.InvokeVoidAsync(
-                        "alert",
-                        $"Error: {result.ErrorMessage ?? "Unknown error"}"
-                    );
+                    if (alertModal != null)
+                    {
+                        await alertModal.ShowAsync($"Error: {result.ErrorMessage ?? "Unknown error"}");
+                    }
                 }
             }
         }
-
-
-
+        private void Cancel()
+        {
+            _blogModel = new CreateBlogPostCommand();  
+            _ = QuillHtml.LoadHTMLContent(string.Empty); 
+        }
     }
 }
