@@ -868,11 +868,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Anđelija\\OneDrive - Univerzitet u Nisu - Elektronski fakultet\\Radna površina\\BlogEngine\\BlogApp\\BlogApp\\BlogApp\\BlogApp.csproj",
+      "projectUniqueName": "C:\\Downloads\\BlogEngine\\BlogApp\\BlogApp\\BlogApp\\BlogApp.csproj",
       "projectName": "BlogApp",
-      "projectPath": "C:\\Users\\Anđelija\\OneDrive - Univerzitet u Nisu - Elektronski fakultet\\Radna površina\\BlogEngine\\BlogApp\\BlogApp\\BlogApp\\BlogApp.csproj",
+      "projectPath": "C:\\Downloads\\BlogEngine\\BlogApp\\BlogApp\\BlogApp\\BlogApp.csproj",
       "packagesPath": "C:\\Users\\Anđelija\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Anđelija\\OneDrive - Univerzitet u Nisu - Elektronski fakultet\\Radna površina\\BlogEngine\\BlogApp\\BlogApp\\BlogApp\\obj\\",
+      "outputPath": "C:\\Downloads\\BlogEngine\\BlogApp\\BlogApp\\BlogApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -893,8 +893,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\Anđelija\\OneDrive - Univerzitet u Nisu - Elektronski fakultet\\Radna površina\\BlogEngine\\BlogApp\\BlogApp\\BlogAPI.Shared\\BlogAPI.Shared.csproj": {
-              "projectPath": "C:\\Users\\Anđelija\\OneDrive - Univerzitet u Nisu - Elektronski fakultet\\Radna površina\\BlogEngine\\BlogApp\\BlogApp\\BlogAPI.Shared\\BlogAPI.Shared.csproj"
+            "C:\\Downloads\\BlogEngine\\BlogApp\\BlogApp\\BlogAPI.Shared\\BlogAPI.Shared.csproj": {
+              "projectPath": "C:\\Downloads\\BlogEngine\\BlogApp\\BlogApp\\BlogAPI.Shared\\BlogAPI.Shared.csproj"
             }
           }
         }

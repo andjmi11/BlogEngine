@@ -1682,6 +1682,19 @@
             "rid": "win"
           }
         }
+      },
+      "BlogAPI.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "MediatR": "13.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BlogAPI.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BlogAPI.Shared.dll": {}
+        }
       }
     }
   },
@@ -4917,11 +4930,16 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "BlogAPI.Shared/1.0.0": {
+      "type": "project",
+      "path": "../../BlogApp/BlogApp/BlogAPI.Shared/BlogAPI.Shared.csproj",
+      "msbuildProject": "../../BlogApp/BlogApp/BlogAPI.Shared/BlogAPI.Shared.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
-      "C:\\Downloads\\BlogEngine\\BlogApp\\BlogApp\\BlogAPI.Shared\\BlogAPI.Shared.csproj",
+      "BlogAPI.Shared >= 1.0.0",
       "MediatR >= 13.0.0",
       "Microsoft.AspNetCore.OpenApi >= 9.0.7",
       "Microsoft.EntityFrameworkCore.Design >= 9.0.7",
@@ -5035,16 +5053,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1105",
-      "level": "Error",
-      "message": "Unable to find project information for 'C:\\Downloads\\BlogEngine\\BlogApp\\BlogApp\\BlogAPI.Shared\\BlogAPI.Shared.csproj'. If you are using Visual Studio, this may be because the project is unloaded or not part of the current solution so run a restore from the command-line. Otherwise, the project file may be invalid or missing targets required for restore.",
-      "libraryId": "C:\\Downloads\\BlogEngine\\BlogApp\\BlogApp\\BlogAPI.Shared\\BlogAPI.Shared.csproj",
-      "targetGraphs": [
-        "net9.0"
-      ]
-    }
-  ]
+  }
 }

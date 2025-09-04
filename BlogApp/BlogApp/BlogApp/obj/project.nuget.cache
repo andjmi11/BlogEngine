@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yRmE6f6JEQI=",
+  "dgSpecHash": "Y0CTkFVfmfQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Anđelija\\OneDrive - Univerzitet u Nisu - Elektronski fakultet\\Radna površina\\BlogEngine\\BlogApp\\BlogApp\\BlogApp\\BlogApp.csproj",
+  "projectFilePath": "C:\\Downloads\\BlogEngine\\BlogApp\\BlogApp\\BlogApp\\BlogApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Anđelija\\.nuget\\packages\\blazored.texteditor\\1.1.3\\blazored.texteditor.1.1.3.nupkg.sha512",
     "C:\\Users\\Anđelija\\.nuget\\packages\\mediatr\\13.0.0\\mediatr.13.0.0.nupkg.sha512",
