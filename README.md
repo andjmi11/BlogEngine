@@ -92,10 +92,3 @@ dotnet run
 ```bash
 dotnet tool install --global dotnet-ef
 ```
-
-* Shared models in `Blog.Shared` are referenced by both API and Blazor app.
-* All migrations are included; database updates automatically using the name from the connection string.
-* Rich text editor or markdown support in Blazor App requires a compatible Blazor component (e.g., `Blazored.TextEditor`).
-* Frontend is fully responsive for mobile, tablet, and desktop.
-
----
