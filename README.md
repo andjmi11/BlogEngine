@@ -77,7 +77,7 @@ dotnet run
 ## Quich start
 | Step | Project / Action           | Command / URL                                                                     | Notes                                          |
 | ---- | -------------------------- | --------------------------------------------------------------------------------- | ---------------------------------------------- |
-| 1    | Clone repository           |  <br> `cd blog-engine` | Navigate into project folder after clone       |
+| 1    | Clone repository           |  Navigate into project folder after clone       |
 | 2    | Configure database         | Edit `BlogAPI/appsettings.json`                                                  | Set connection string (SQLite or SQL Server)   |
 | 3    | Generate HTTPS certificate | `dotnet dev-certs https --trust`                                                  | Needed if no local cert exists                 |
 | 4    | Apply migrations in API    | Database name is taken from connection string  |
