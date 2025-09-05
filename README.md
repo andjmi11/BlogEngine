@@ -77,12 +77,10 @@ dotnet run
 ## Quich start
 | Step | Project / Action           | Command / URL                                                                     | Notes                                          |
 | ---- | -------------------------- | --------------------------------------------------------------------------------- | ---------------------------------------------- |
-| 1    | Clone repository           |  Navigate into project folder after clone       |
-| 2    | Configure database         | Edit `BlogAPI/appsettings.json`                                                  | Set connection string (SQLite or SQL Server)   |
-| 3    | Generate HTTPS certificate | `dotnet dev-certs https --trust`                                                  | Needed if no local cert exists                 |
-| 4    | Apply migrations in API    | Database name is taken from connection string  |
-| 5    | Apply migrations manually  | `dotnet ef database update --project Blog.Api`                                    | EF Core reads DB name from connection string   |
-| 6    | Run API                    | `cd BlogAPI` <br> `dotnet run`                                                   | Runs on `https://localhost:7177`               |
+| 1    | Configure database         | Edit `BlogAPI/appsettings.json`                                                  | Set connection string (SQL Server)   |
+| 2    | Generate HTTPS certificate | `dotnet dev-certs https --trust`                                                  | Needed if no local cert exists                 |
+| 3    | Apply migrations manually on  BlogAPI | `dotnet ef database update `                                    | EF Core reads DB name from connection string   |
+| 6    | Run API                    | `cd BlogAPI` <br> `dotnet watch run`                                                   | Runs on `https://localhost:7177`               |
 | 7    | Run Blog App             | `cd BlogApp` <br> `dotnet run`                                                  | Port displayed on run (on 7012) |
 | 8    | Open in browser            | `https://localhost:7177` (API) <br> `https://localhost:7012` (Blog App)         | Admin Panel & Client Site are in the same app  |
 
