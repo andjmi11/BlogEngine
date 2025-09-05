@@ -27,7 +27,7 @@ All projects are in the same solution and reference `Blog.Shared` for consistenc
 ### 2. Configure Database
 
 * Open `BlogAPI/appsettings.json`
-* Set your connection string (SQLite or SQL Server). Example:
+* Set your connection string (SQL Server). Example:
 
 ```json
 "ConnectionStrings": {
