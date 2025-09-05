@@ -125,7 +125,6 @@ C:\Downloads\BlogEngine\BlogApp\BlogApp\BlogApp\obj\Debug\net9.0\scopedcss\bundl
 C:\Downloads\BlogEngine\BlogApp\BlogApp\BlogApp\obj\Debug\net9.0\scopedcss\projectbundle\BlogApp.bundle.scp.css
 C:\Downloads\BlogEngine\BlogApp\BlogApp\BlogApp\obj\Debug\net9.0\compressed\vy897fugvk-dj4raj0v6v.gz
 C:\Downloads\BlogEngine\BlogApp\BlogApp\BlogApp\obj\Debug\net9.0\compressed\6b8qd2c12s-06wjpxauos.gz
-C:\Downloads\BlogEngine\BlogApp\BlogApp\BlogApp\obj\Debug\net9.0\compressed\e5nrehbmzm-25z08qvc0w.gz
 C:\Downloads\BlogEngine\BlogApp\BlogApp\BlogApp\obj\Debug\net9.0\compressed\t5sug60dg9-bltu54hrzl.gz
 C:\Downloads\BlogEngine\BlogApp\BlogApp\BlogApp\obj\Debug\net9.0\compressed\m5xwzmzrmm-t1cqhe9u97.gz
 C:\Downloads\BlogEngine\BlogApp\BlogApp\BlogApp\obj\Debug\net9.0\compressed\c151lvma8a-c2jlpeoesf.gz
@@ -184,3 +183,4 @@ C:\Downloads\BlogEngine\BlogApp\BlogApp\BlogApp\obj\Debug\net9.0\refint\BlogApp.
 C:\Downloads\BlogEngine\BlogApp\BlogApp\BlogApp\obj\Debug\net9.0\BlogApp.pdb
 C:\Downloads\BlogEngine\BlogApp\BlogApp\BlogApp\obj\Debug\net9.0\BlogApp.genruntimeconfig.cache
 C:\Downloads\BlogEngine\BlogApp\BlogApp\BlogApp\obj\Debug\net9.0\ref\BlogApp.dll
+C:\Downloads\BlogEngine\BlogApp\BlogApp\BlogApp\obj\Debug\net9.0\compressed\e5nrehbmzm-7txs9rkcld.gz

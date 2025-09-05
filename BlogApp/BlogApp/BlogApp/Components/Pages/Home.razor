@@ -71,7 +71,7 @@
             <h1 class="fs-3">Latest posts</h1>
             <hr />
 
-            @if (posts == null)
+            @if (posts == null  || !posts.Any())
             {
                 <div class="d-flex justify-content-center flex-column align-items-center" style="min-height:250px">
                     <h3>No blog posts found.</h3>
