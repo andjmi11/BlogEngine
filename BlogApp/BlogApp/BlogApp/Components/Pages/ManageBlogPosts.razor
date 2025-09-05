@@ -2,8 +2,8 @@
 
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h3>Manage Blog posts</h3>
-        <NavLink href="/manage-blogs/save-post" class="btn btn-primary">Add another blog post</NavLink>
+        <h3 style="margin:2px">Manage Blog posts</h3>
+        <NavLink href="/manage-blogs/save-post" class="btn btn-primary" style="margin-top:6px">Add another blog post</NavLink>
     </div>
 
     <hr />
@@ -48,7 +48,7 @@
                             <td>@post.DatePublished.ToShortDateString()</td>
                             <td>@post.AuthorFirstName @post.AuthorLastName</td>
                             <td>
-                                <NavLink href="@editPostLink" class="btn btn-default btn-sm">Edit</NavLink>
+                                <NavLink class="btn btn-primary btn-sm" href="@editPostLink">Edit</NavLink>
                             </td>
                         </tr>
                     }
@@ -90,3 +90,4 @@
         }
     </div>
 </div>
+

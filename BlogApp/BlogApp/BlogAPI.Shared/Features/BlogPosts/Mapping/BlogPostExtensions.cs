@@ -1,6 +1,6 @@
-﻿using BlogAPI.Features.BlogPosts.Commands;
+﻿using BlogAPI.Shared.Features.BlogPosts.Commands;
 
-namespace BlogAPI.Features.BlogPosts.Mapping
+namespace BlogAPI.Shared.Features.BlogPosts.Mapping
 {
     public static class BlogPostExtensions
     {

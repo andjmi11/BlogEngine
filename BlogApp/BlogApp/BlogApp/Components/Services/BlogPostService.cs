@@ -1,5 +1,5 @@
-﻿using BlogAPI.Features.BlogPosts.Commands;
-using BlogAPI.Features.BlogPosts.DTOs;
+﻿using BlogAPI.Shared.Features.BlogPosts.Commands;
+using BlogAPI.Shared.Features.BlogPosts.DTOs;
 using BlogApp.Components.Helpers;
 using System.Net.Http;
 using System.Net.Http.Json;

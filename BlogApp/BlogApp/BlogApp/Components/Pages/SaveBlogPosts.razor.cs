@@ -1,6 +1,6 @@
-﻿using BlogAPI.Features.Authors.DTOs;
-using BlogAPI.Features.BlogPosts.Commands;
-using BlogAPI.Features.BlogPosts.Mapping;
+﻿using BlogAPI.Shared.Features.Authors.DTOs;
+using BlogAPI.Shared.Features.BlogPosts.Commands;
+using BlogAPI.Shared.Features.BlogPosts.Mapping;
 using BlogApp.Components.Helpers;
 using BlogApp.Components.Pages.Forms;
 using BlogApp.Components.Services;
@@ -86,22 +86,15 @@ namespace BlogApp.Components.Pages
 
             if (result?.Status == true)
             {
-                if (alertModal != null)
+                if (result?.Status == true)
                 {
-                    alertModal.OnClose = EventCallback.Factory.Create(this, () =>
-                    {
-                        NavigationManager.NavigateTo("/manage-blogs", forceLoad: true);
-                    });
-
-                    await alertModal.ShowAsync("Blog post saved successfully!");
+                    NavigationManager.NavigateTo("/manage-blogs", forceLoad: true);
                 }
+
             }
             else
             {
-                if (alertModal != null)
-                {
-                    await alertModal.ShowAsync($"Error: {result?.ErrorMessage ?? "Unknown error"}");
-                }
+                await alertModal.ShowAsync($"Error: {result?.ErrorMessage ?? "Unknown error"}");
             }
         }
 
@@ -113,22 +106,15 @@ namespace BlogApp.Components.Pages
 
                 if (result.Status == true)
                 {
-                    if (alertModal != null)
+                    if (result.Status == true)
                     {
-                        alertModal.OnClose = EventCallback.Factory.Create(this, () =>
-                        {
-                            NavigationManager.NavigateTo("/manage-blogs", forceLoad: true);
-                        });
-
-                        await alertModal.ShowAsync("Blog post deleted successfully!");
+                        NavigationManager.NavigateTo("/manage-blogs", forceLoad: true);
                     }
+
                 }
                 else
                 {
-                    if (alertModal != null)
-                    {
-                        await alertModal.ShowAsync($"Error: {result.ErrorMessage ?? "Unknown error"}");
-                    }
+                    await alertModal.ShowAsync($"Error: {result.ErrorMessage ?? "Unknown error"}");
                 }
             }
         }

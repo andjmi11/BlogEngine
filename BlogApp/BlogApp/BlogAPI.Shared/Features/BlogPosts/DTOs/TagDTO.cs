@@ -1,4 +1,4 @@
-﻿namespace BlogAPI.Features.BlogPosts.DTOs
+﻿namespace BlogAPI.Shared.Features.BlogPosts.DTOs
 {
     public class TagDTO
     {

@@ -1,7 +1,7 @@
-﻿using BlogAPI.Features.Authors.Commands;
-using BlogAPI.Features.Authors.DTOs;
+﻿using BlogAPI.Shared.Features.Authors.Commands;
+using BlogAPI.Shared.Features.Authors.DTOs;
 
-namespace BlogAPI.Features.Authors.Mapping
+namespace BlogAPI.Shared.Features.Authors.Mapping
 {
     public static class AuthorExtensions
     {

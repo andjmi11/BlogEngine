@@ -1,5 +1,5 @@
-﻿using BlogAPI.Features.Authors.DTOs;
-using BlogAPI.Features.BlogPosts.DTOs;
+﻿using BlogAPI.Shared.Features.Authors.DTOs;
+using BlogAPI.Shared.Features.BlogPosts.DTOs;
 using BlogApp.Components.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
@@ -24,7 +24,8 @@ namespace BlogApp.Components.Pages
 
         private string dateFromString;
         private string dateToString;
-
+        private int filterSidebar = 0;
+        private int filterSidebarMobile = 1;
         private async Task ApplyFiltersAndClose()
         {
             await JS.InvokeVoidAsync("closeOffcanvas", "mobileFilters"); 
@@ -103,15 +104,18 @@ namespace BlogApp.Components.Pages
             await LoadPostsAsync();
         }
 
-        private async void ClearAllFilters()
+        private async Task ClearAllFilters()
         {
             selectedTags.Clear();
             selectedLanguage = null;
             selectedAuthorId = null;
             dateFrom = null;
             dateTo = null;
+
             await LoadPostsAsync();
-            StateHasChanged();
+
+            filterSidebar++;
+            filterSidebarMobile++;
         }
     }
 }

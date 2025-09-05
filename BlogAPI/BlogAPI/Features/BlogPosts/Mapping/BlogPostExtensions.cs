@@ -1,4 +1,4 @@
-﻿using BlogAPI.Features.Authors.DTOs;
+﻿using BlogAPI.Shared.Features.Authors.DTOs;
 using BlogAPI.Features.BlogPosts.Commands;
 using BlogAPI.Features.BlogPosts.DTOs;
 using BlogAPI.Models;

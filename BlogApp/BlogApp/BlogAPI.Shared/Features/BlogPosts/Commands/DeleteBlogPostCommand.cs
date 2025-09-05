@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace BlogAPI.Features.BlogPosts.Commands
+namespace BlogAPI.Shared.Features.BlogPosts.Commands
 {
     public class DeleteBlogPostCommand : IRequest<int>
     {

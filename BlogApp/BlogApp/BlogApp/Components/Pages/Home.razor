@@ -13,7 +13,7 @@
             </div>
         </div>
 
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileFilters" aria-labelledby="mobileFiltersLabel">
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileFilters" aria-labelledby="mobileFiltersLabel" @key="filterSidebarMobile">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="mobileFiltersLabel">Filters</h5>
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -25,7 +25,7 @@
                         <label>Selected tags:</label>
                         @foreach (var tag in selectedTags)
                         {
-                            <span class="badge bg-primary me-1" style="cursor:pointer" @onclick="() => RemoveTag(tag)">
+                            <span class="badge bg-dark me-1" style="cursor:pointer" @onclick="() => RemoveTag(tag)">
                                 @tag &times;
                             </span>
                         }
@@ -71,7 +71,7 @@
             <h1 class="fs-3">Latest posts</h1>
             <hr />
 
-            @if (posts == null || posts.Count() == 0)
+            @if (posts == null)
             {
                 <div class="d-flex justify-content-center flex-column align-items-center" style="min-height:250px">
                     <h3>No blog posts found.</h3>
@@ -117,7 +117,7 @@
         </div>
 
 
-        <div class="col-md-3 d-none d-md-block">
+        <div class="col-md-3 d-none d-md-block" @key="filterSidebar">
             <h1 class="fs-3">Filters</h1>
             <hr />
 
@@ -127,7 +127,7 @@
                     <label class="me-1">Selected tags:</label>
                     @foreach (var tag in selectedTags)
                     {
-                        <span class="badge bg-primary me-1" style="cursor:pointer" @onclick="() => RemoveTag(tag)">
+                        <span class="badge bg-dark me-1" style="cursor:pointer" @onclick="() => RemoveTag(tag)">
                             @tag &times;
                         </span>
                     }
@@ -153,11 +153,11 @@
             </select>
 
             <label>Date From</label>
-            <input type="date" class="form-control mb-2" value="@dateFromString"
-                   @onchange="OnDateFromChanged" />
+            <input type="date" class="form-control mb-2" value="@dateFromString" max="@DateTime.Today.ToString("yyyy-MM-dd")"
+                   @onchange="OnDateFromChanged"  />
 
             <label>Date To</label>
-            <input type="date" class="form-control mb-2" value="@dateToString"
+            <input type="date" class="form-control mb-2" value="@dateToString" max="@DateTime.Today.ToString("yyyy-MM-dd")"
                    @onchange="OnDateToChanged" />
 
             <button class="btn btn-secondary mt-2" @onclick="ClearAllFilters">Clear All</button>

@@ -1,4 +1,4 @@
-﻿using BlogAPI.Features.BlogPosts.DTOs;
+﻿using BlogAPI.Shared.Features.BlogPosts.DTOs;
 using BlogApp.Components.Services;
 using Microsoft.AspNetCore.Components;
 

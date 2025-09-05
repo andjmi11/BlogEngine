@@ -1,6 +1,4 @@
-﻿using BlogAPI.Features.Authors.DTOs;
-using BlogAPI.Features.Authors.Queries;
-using BlogAPI.Features.BlogPosts.Commands;
+﻿using BlogAPI.Features.BlogPosts.Commands;
 using BlogAPI.Features.BlogPosts.DTOs;
 using BlogAPI.Features.BlogPosts.Queries;
 using BlogAPI.Models;

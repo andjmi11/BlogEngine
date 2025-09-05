@@ -1,8 +1,8 @@
-﻿using BlogAPI.Features.Authors.DTOs;
+﻿using BlogAPI.Shared.Features.Authors.DTOs;
 using MediatR;
 using System.ComponentModel.DataAnnotations;
 
-namespace BlogAPI.Features.Authors.Commands
+namespace BlogAPI.Shared.Features.Authors.Commands
 {
     public class CreateAuthorCommand : IRequest<AuthorDTO>
     {

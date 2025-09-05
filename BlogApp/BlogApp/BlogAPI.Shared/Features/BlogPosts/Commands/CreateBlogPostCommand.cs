@@ -1,8 +1,8 @@
-﻿using BlogAPI.Features.BlogPosts.DTOs;
+﻿using BlogAPI.Shared.Features.BlogPosts.DTOs;
 using MediatR;
 using System.ComponentModel.DataAnnotations;
 
-namespace BlogAPI.Features.BlogPosts.Commands
+namespace BlogAPI.Shared.Features.BlogPosts.Commands
 {
     public class CreateBlogPostCommand : IRequest<PostDTO>
     {
@@ -17,12 +17,15 @@ namespace BlogAPI.Features.BlogPosts.Commands
         public string Content { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Language is required")]
+        [RegularExpression(@"^[a-zA-Z]{2}$", ErrorMessage = "Language must be exactly two letters.")]
         public string Language { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Date published is required")]
         public DateTime DatePublished { get; set; } = DateTime.Now;
 
         [Required(ErrorMessage = "At least one tag is required")]
+        [RegularExpression(@"^([a-zA-Z0-9]+(-[a-zA-Z0-9]+)*)(,\s*([a-zA-Z0-9]+(-[a-zA-Z0-9]+)*))*$",
+                ErrorMessage = "Tags can only contain letters, numbers, optional hyphens, and must be separated by commas.")]
         public string Tags { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Author is required")]

@@ -2,8 +2,8 @@
 
 <div class="container">
     <div class="d-flex justify-content-between align-items-center">
-        <h3> Manage Authors</h3>
-        <button class="btn btn-primary" @onclick="OpenAuthorForm">Add another author</button>
+        <h3 style="margin:2px"> Manage Authors</h3>
+        <button class="btn btn-primary" style="margin-top:6px" @onclick="OpenAuthorForm">Add another author</button>
 
     </div>
     <hr />
@@ -13,6 +13,7 @@
                 <th>No.</th>
                 <th>First name</th>
                 <th>Last name</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -42,7 +43,7 @@
                         <td>@author.FirstName</td>
                         <td>@author.LastName</td>
                         <td>
-                            <button type="button" class="btn btn-default btn-sm" @onclick="() => EditAuthor(author)">Edit</button>
+                            <button type="button" class="btn btn-primary btn-sm" @onclick="() => EditAuthor(author)">Edit</button>
                         </td>
                     </tr>
                 }

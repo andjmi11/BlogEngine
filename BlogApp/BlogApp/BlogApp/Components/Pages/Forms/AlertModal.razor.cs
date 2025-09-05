@@ -25,6 +25,7 @@ namespace BlogApp.Components.Pages.Forms
             {
                 await OnClose.InvokeAsync(null);
             }
+
         }
     }
 }

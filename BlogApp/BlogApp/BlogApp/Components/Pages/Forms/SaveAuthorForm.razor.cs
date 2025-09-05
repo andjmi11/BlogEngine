@@ -1,9 +1,9 @@
-﻿using BlogAPI.Features.Authors.Commands;
-using BlogAPI.Features.Authors.DTOs;
+﻿using BlogAPI.Shared.Features.Authors.Commands;
+using BlogAPI.Shared.Features.Authors.DTOs;
 using BlogApp.Components.Helpers;
 using BlogApp.Components.Services;
 using Microsoft.AspNetCore.Components;
-using BlogAPI.Features.Authors.Mapping;
+using BlogAPI.Shared.Features.Authors.Mapping;
 
 namespace BlogApp.Components.Pages.Forms
 {

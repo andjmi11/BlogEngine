@@ -1,4 +1,5 @@
 ﻿using BlogAPI.Context;
+using BlogAPI.Shared.Features.BlogPosts.Commands;
 using MediatR;
 
 namespace BlogAPI.Features.BlogPosts.Commands.Handlers

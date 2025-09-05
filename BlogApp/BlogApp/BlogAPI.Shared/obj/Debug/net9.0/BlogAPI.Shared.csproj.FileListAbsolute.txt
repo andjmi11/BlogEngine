@@ -11,3 +11,16 @@ C:\Users\Anđelija\OneDrive - Univerzitet u Nisu - Elektronski fakultet\Radna po
 C:\Users\Anđelija\OneDrive - Univerzitet u Nisu - Elektronski fakultet\Radna površina\BlogEngine\BlogApp\BlogApp\BlogAPI.Shared\obj\Debug\net9.0\refint\BlogAPI.Shared.dll
 C:\Users\Anđelija\OneDrive - Univerzitet u Nisu - Elektronski fakultet\Radna površina\BlogEngine\BlogApp\BlogApp\BlogAPI.Shared\obj\Debug\net9.0\BlogAPI.Shared.pdb
 C:\Users\Anđelija\OneDrive - Univerzitet u Nisu - Elektronski fakultet\Radna površina\BlogEngine\BlogApp\BlogApp\BlogAPI.Shared\obj\Debug\net9.0\ref\BlogAPI.Shared.dll
+C:\Downloads\BlogEngine\BlogApp\BlogApp\BlogAPI.Shared\bin\Debug\net9.0\BlogAPI.Shared.deps.json
+C:\Downloads\BlogEngine\BlogApp\BlogApp\BlogAPI.Shared\bin\Debug\net9.0\BlogAPI.Shared.dll
+C:\Downloads\BlogEngine\BlogApp\BlogApp\BlogAPI.Shared\bin\Debug\net9.0\BlogAPI.Shared.pdb
+C:\Downloads\BlogEngine\BlogApp\BlogApp\BlogAPI.Shared\obj\Debug\net9.0\BlogAPI.Shared.csproj.AssemblyReference.cache
+C:\Downloads\BlogEngine\BlogApp\BlogApp\BlogAPI.Shared\obj\Debug\net9.0\BlogAPI.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Downloads\BlogEngine\BlogApp\BlogApp\BlogAPI.Shared\obj\Debug\net9.0\BlogAPI.Shared.AssemblyInfoInputs.cache
+C:\Downloads\BlogEngine\BlogApp\BlogApp\BlogAPI.Shared\obj\Debug\net9.0\BlogAPI.Shared.AssemblyInfo.cs
+C:\Downloads\BlogEngine\BlogApp\BlogApp\BlogAPI.Shared\obj\Debug\net9.0\BlogAPI.Shared.csproj.CoreCompileInputs.cache
+C:\Downloads\BlogEngine\BlogApp\BlogApp\BlogAPI.Shared\obj\Debug\net9.0\BlogAPI.Shared.sourcelink.json
+C:\Downloads\BlogEngine\BlogApp\BlogApp\BlogAPI.Shared\obj\Debug\net9.0\BlogAPI.Shared.dll
+C:\Downloads\BlogEngine\BlogApp\BlogApp\BlogAPI.Shared\obj\Debug\net9.0\refint\BlogAPI.Shared.dll
+C:\Downloads\BlogEngine\BlogApp\BlogApp\BlogAPI.Shared\obj\Debug\net9.0\BlogAPI.Shared.pdb
+C:\Downloads\BlogEngine\BlogApp\BlogApp\BlogAPI.Shared\obj\Debug\net9.0\ref\BlogAPI.Shared.dll

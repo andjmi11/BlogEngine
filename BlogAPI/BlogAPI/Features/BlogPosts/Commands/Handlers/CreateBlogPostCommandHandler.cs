@@ -1,9 +1,10 @@
 ﻿using BlogAPI.Context;
 using BlogAPI.Features.BlogPosts.DTOs;
-using BlogAPI.Features.BlogPosts.Mapping;
 using BlogAPI.Helpers;
 using BlogAPI.Models;
 using MediatR;
+using BlogAPI.Features.BlogPosts.Commands;
+using BlogAPI.Features.BlogPosts.Mapping;
 
 namespace BlogAPI.Features.BlogPosts.Commands.Handlers
 {

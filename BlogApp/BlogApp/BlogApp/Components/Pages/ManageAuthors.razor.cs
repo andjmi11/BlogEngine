@@ -1,4 +1,4 @@
-﻿using BlogAPI.Features.Authors.DTOs;
+﻿using BlogAPI.Shared.Features.Authors.DTOs;
 using BlogApp.Components.Helpers;
 using BlogApp.Components.Pages.Forms;
 using BlogApp.Components.Services;
