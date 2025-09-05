@@ -50,8 +50,7 @@
               "RelativeToolTip": "BlogAPI\\Features\\BlogPosts\\Queries\\GetLanguagesQuery.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T20:58:02.015Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-04T20:58:02.015Z"
             },
             {
               "$type": "Document",
@@ -63,8 +62,7 @@
               "RelativeToolTip": "BlogAPI\\Features\\BlogPosts\\Queries\\GetTagByPostIdQuery.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T20:58:00.629Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-04T20:58:00.629Z"
             },
             {
               "$type": "Document",
@@ -76,8 +74,7 @@
               "RelativeToolTip": "BlogAPI\\Features\\BlogPosts\\Queries\\GetPostsQuery.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T20:57:59.126Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-04T20:57:59.126Z"
             },
             {
               "$type": "Document",
@@ -87,7 +84,7 @@
               "RelativeDocumentMoniker": "BlogAPI\\Controllers\\AuthorController.cs",
               "ToolTip": "C:\\Downloads\\BlogEngine\\BlogAPI\\BlogAPI\\Controllers\\AuthorController.cs",
               "RelativeToolTip": "BlogAPI\\Controllers\\AuthorController.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAzwAoAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwAoAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-04T20:56:56.901Z",
               "EditorCaption": ""
@@ -102,8 +99,7 @@
               "RelativeToolTip": "BlogAPI\\Features\\BlogPosts\\Queries\\Handlers\\GetPostsQueryHandler.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T20:55:45.085Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-04T20:55:45.085Z"
             },
             {
               "$type": "Document",
@@ -115,8 +111,7 @@
               "RelativeToolTip": "BlogAPI\\Controllers\\BlogPostController.cs",
               "ViewState": "AgIAACsAAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T20:55:24.163Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-04T20:55:24.163Z"
             },
             {
               "$type": "Document",
@@ -128,8 +123,7 @@
               "RelativeToolTip": "BlogAPI\\Properties\\launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-04T20:47:39.408Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-04T20:47:39.408Z"
             }
           ]
         }

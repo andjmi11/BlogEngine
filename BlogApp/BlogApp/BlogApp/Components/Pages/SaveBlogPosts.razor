@@ -81,20 +81,27 @@
                     <ValidationMessage For="@(() => _blogModel.DatePublished)" />
                 </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Author</label>
-                    <InputSelect @bind-Value="_blogModel.AuthorId" class="form-control">
-                        <option value="">-- Select Author --</option>
-                        @foreach (var author in Authors)
-                        {
-                            <option value="@author.Id">
-                                @author.FirstName @author.LastName
-                            </option>
-                        }
-                    </InputSelect>
-                    <ValidationMessage For="() => _blogModel.AuthorId" />
-                </div>
+                <div class="mb-3" >
+                        <label class="form-label">Author</label>
+                        <div class="d-flex justify-content-between align-items-center gap-2">
+                            <InputSelect @bind-Value="_blogModel.AuthorId" class="form-control flex-grow-1">
+                                <option value="">-- Select Author --</option>
+                                @foreach (var author in Authors)
+                                {
+                                    <option value="@author.Id">
+                                        @author.FirstName @author.LastName
+                                    </option>
+                                }
+                            </InputSelect>
+
+                        <button type="button" class="btn btn-primary btn-sm" @onclick="OpenAuthorForm">
+                                Create New
+                            </button>
+                        </div>
+                        <ValidationMessage For="() => _blogModel.AuthorId" />
+                    </div>
             </div>
+
 
             <div class="card-footer d-flex justify-content-between">
                     @if (BlogId > 0)
@@ -112,3 +119,10 @@
     </EditForm>
 </div>
 
+    <div class="modal fade" id="authorModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <SaveAuthorForm OnSaveAuthor="HandleAuthorSaved" OnCloseForm="CloseAuthorForm" />
+            </div>
+        </div>
+    </div>

@@ -30,6 +30,32 @@ namespace BlogApp.Components.Pages
         Blazored.TextEditor.BlazoredTextEditor QuillHtml { get; set; }
         string QuillHTMLContent;
         private AlertModal? alertModal;
+
+        private async Task HandleAuthorSaved(MethodResult result)
+        {
+            if (result.Status == true)
+            {
+                Authors = await AuthorService.GetAllAuthorsAsync();
+
+                var lastAuthor = Authors.LastOrDefault();
+                if (lastAuthor != null)
+                {
+                    _blogModel.AuthorId = lastAuthor.Id;
+                }
+            }
+
+            StateHasChanged();
+        }
+
+        private async Task OpenAuthorForm()
+        {
+            await JSRuntime.InvokeVoidAsync("bootstrapInterop.showModal", "authorModal");
+        }
+
+        private async Task CloseAuthorForm()
+        {
+            await JSRuntime.InvokeVoidAsync("bootstrapInterop.hideModal", "authorModal");
+        }
         protected override async Task OnInitializedAsync()
         {
             Authors = await AuthorService.GetAllAuthorsAsync();

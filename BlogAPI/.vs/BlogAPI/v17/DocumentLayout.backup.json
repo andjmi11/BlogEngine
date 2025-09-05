@@ -1,12 +1,139 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Downloads\\BlogEngine\\BlogAPI\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{556119D1-EF19-4CA9-AE62-3E4FE6B98787}|BlogAPI\\BlogAPI.csproj|c:\\downloads\\blogengine\\blogapi\\blogapi\\controllers\\authorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{556119D1-EF19-4CA9-AE62-3E4FE6B98787}|BlogAPI\\BlogAPI.csproj|solutionrelative:blogapi\\controllers\\authorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{556119D1-EF19-4CA9-AE62-3E4FE6B98787}|BlogAPI\\BlogAPI.csproj|c:\\downloads\\blogengine\\blogapi\\blogapi\\features\\blogposts\\queries\\gettagbypostidquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{556119D1-EF19-4CA9-AE62-3E4FE6B98787}|BlogAPI\\BlogAPI.csproj|solutionrelative:blogapi\\features\\blogposts\\queries\\gettagbypostidquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{556119D1-EF19-4CA9-AE62-3E4FE6B98787}|BlogAPI\\BlogAPI.csproj|c:\\downloads\\blogengine\\blogapi\\blogapi\\features\\blogposts\\queries\\getlanguagesquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{556119D1-EF19-4CA9-AE62-3E4FE6B98787}|BlogAPI\\BlogAPI.csproj|solutionrelative:blogapi\\features\\blogposts\\queries\\getlanguagesquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{556119D1-EF19-4CA9-AE62-3E4FE6B98787}|BlogAPI\\BlogAPI.csproj|c:\\downloads\\blogengine\\blogapi\\blogapi\\features\\blogposts\\queries\\getpostsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{556119D1-EF19-4CA9-AE62-3E4FE6B98787}|BlogAPI\\BlogAPI.csproj|solutionrelative:blogapi\\features\\blogposts\\queries\\getpostsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{556119D1-EF19-4CA9-AE62-3E4FE6B98787}|BlogAPI\\BlogAPI.csproj|c:\\downloads\\blogengine\\blogapi\\blogapi\\features\\blogposts\\queries\\handlers\\getpostsqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{556119D1-EF19-4CA9-AE62-3E4FE6B98787}|BlogAPI\\BlogAPI.csproj|solutionrelative:blogapi\\features\\blogposts\\queries\\handlers\\getpostsqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{556119D1-EF19-4CA9-AE62-3E4FE6B98787}|BlogAPI\\BlogAPI.csproj|c:\\downloads\\blogengine\\blogapi\\blogapi\\controllers\\blogpostcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{556119D1-EF19-4CA9-AE62-3E4FE6B98787}|BlogAPI\\BlogAPI.csproj|solutionrelative:blogapi\\controllers\\blogpostcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{556119D1-EF19-4CA9-AE62-3E4FE6B98787}|BlogAPI\\BlogAPI.csproj|c:\\downloads\\blogengine\\blogapi\\blogapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{556119D1-EF19-4CA9-AE62-3E4FE6B98787}|BlogAPI\\BlogAPI.csproj|solutionrelative:blogapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GetLanguagesQuery.cs",
+              "DocumentMoniker": "C:\\Downloads\\BlogEngine\\BlogAPI\\BlogAPI\\Features\\BlogPosts\\Queries\\GetLanguagesQuery.cs",
+              "RelativeDocumentMoniker": "BlogAPI\\Features\\BlogPosts\\Queries\\GetLanguagesQuery.cs",
+              "ToolTip": "C:\\Downloads\\BlogEngine\\BlogAPI\\BlogAPI\\Features\\BlogPosts\\Queries\\GetLanguagesQuery.cs",
+              "RelativeToolTip": "BlogAPI\\Features\\BlogPosts\\Queries\\GetLanguagesQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T20:58:02.015Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GetTagByPostIdQuery.cs",
+              "DocumentMoniker": "C:\\Downloads\\BlogEngine\\BlogAPI\\BlogAPI\\Features\\BlogPosts\\Queries\\GetTagByPostIdQuery.cs",
+              "RelativeDocumentMoniker": "BlogAPI\\Features\\BlogPosts\\Queries\\GetTagByPostIdQuery.cs",
+              "ToolTip": "C:\\Downloads\\BlogEngine\\BlogAPI\\BlogAPI\\Features\\BlogPosts\\Queries\\GetTagByPostIdQuery.cs",
+              "RelativeToolTip": "BlogAPI\\Features\\BlogPosts\\Queries\\GetTagByPostIdQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T20:58:00.629Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GetPostsQuery.cs",
+              "DocumentMoniker": "C:\\Downloads\\BlogEngine\\BlogAPI\\BlogAPI\\Features\\BlogPosts\\Queries\\GetPostsQuery.cs",
+              "RelativeDocumentMoniker": "BlogAPI\\Features\\BlogPosts\\Queries\\GetPostsQuery.cs",
+              "ToolTip": "C:\\Downloads\\BlogEngine\\BlogAPI\\BlogAPI\\Features\\BlogPosts\\Queries\\GetPostsQuery.cs",
+              "RelativeToolTip": "BlogAPI\\Features\\BlogPosts\\Queries\\GetPostsQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T20:57:59.126Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthorController.cs",
+              "DocumentMoniker": "C:\\Downloads\\BlogEngine\\BlogAPI\\BlogAPI\\Controllers\\AuthorController.cs",
+              "RelativeDocumentMoniker": "BlogAPI\\Controllers\\AuthorController.cs",
+              "ToolTip": "C:\\Downloads\\BlogEngine\\BlogAPI\\BlogAPI\\Controllers\\AuthorController.cs",
+              "RelativeToolTip": "BlogAPI\\Controllers\\AuthorController.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAzwAoAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T20:56:56.901Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GetPostsQueryHandler.cs",
+              "DocumentMoniker": "C:\\Downloads\\BlogEngine\\BlogAPI\\BlogAPI\\Features\\BlogPosts\\Queries\\Handlers\\GetPostsQueryHandler.cs",
+              "RelativeDocumentMoniker": "BlogAPI\\Features\\BlogPosts\\Queries\\Handlers\\GetPostsQueryHandler.cs",
+              "ToolTip": "C:\\Downloads\\BlogEngine\\BlogAPI\\BlogAPI\\Features\\BlogPosts\\Queries\\Handlers\\GetPostsQueryHandler.cs",
+              "RelativeToolTip": "BlogAPI\\Features\\BlogPosts\\Queries\\Handlers\\GetPostsQueryHandler.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T20:55:45.085Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BlogPostController.cs",
+              "DocumentMoniker": "C:\\Downloads\\BlogEngine\\BlogAPI\\BlogAPI\\Controllers\\BlogPostController.cs",
+              "RelativeDocumentMoniker": "BlogAPI\\Controllers\\BlogPostController.cs",
+              "ToolTip": "C:\\Downloads\\BlogEngine\\BlogAPI\\BlogAPI\\Controllers\\BlogPostController.cs",
+              "RelativeToolTip": "BlogAPI\\Controllers\\BlogPostController.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T20:55:24.163Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Downloads\\BlogEngine\\BlogAPI\\BlogAPI\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "BlogAPI\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Downloads\\BlogEngine\\BlogAPI\\BlogAPI\\Properties\\launchSettings.json",
+              "RelativeToolTip": "BlogAPI\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-04T20:47:39.408Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -24,16 +24,27 @@ All projects are in the same solution and reference `Blog.Shared` for consistenc
 
 ### 1. Clone the repository
 
-### 2. Configure Database
+### 2. Configure Database (SQL LocalDB)
+Open BlogAPI/appsettings.json
 
-* Open `BlogAPI/appsettings.json`
-* Set your connection string (SQL Server). Example:
+## 2a. Create and Start SQL LocalDB Instance
+# Create a new LocalDB instance 
+sqllocaldb create BlogLocalDB
 
-```json
-"ConnectionStrings": {
-  "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=BlogDb;Trusted_Connection=True;"
-}
-```
+# Start the instance
+sqllocaldb start BlogLocalDB
+
+# Optional: check status
+sqllocaldb info BlogLocalDB
+
+## 2b. Apply EF Core Migrations
+# Create a new migration (BlogAPI dir)
+dotnet ef migrations add InitialCreate
+
+# Update the database to apply migrations
+dotnet ef database update 
+
+EF Core will create the database on the running LocalDB instance specified in your connection string.
 
 ### 3. Generate HTTPS Development Certificate (if needed)
 
@@ -45,15 +56,6 @@ dotnet dev-certs https --trust
 
 ---
 
-### 4. Apply Migrations & Update Database in BlogAPI
-
-```bash
-dotnet ef database update 
-```
-
-> EF Core reads the database name from the connection string.
-
----
 
 ### 5. Run the Projects (where .csproj)
 
@@ -72,17 +74,6 @@ dotnet run
 ```
 
 > The Blazor App contains both Admin Panel and Client Site.
-
----
-## Quich start
-| Step | Project / Action           | Command / URL                                                                     | Notes                                          |
-| ---- | -------------------------- | --------------------------------------------------------------------------------- | ---------------------------------------------- |
-| 1    | Configure database         | Edit `BlogAPI/appsettings.json`                                                  | Set connection string (SQL Server)   |
-| 2    | Generate HTTPS certificate | `dotnet dev-certs https --trust`                                                  | Needed if no local cert exists                 |
-| 3    | Apply migrations manually on  BlogAPI | `dotnet ef database update `                                    | EF Core reads DB name from connection string   |
-| 6    | Run API                    | `cd BlogAPI` <br> `dotnet watch run`                                                   | Runs on `https://localhost:7177`               |
-| 7    | Run Blog App             | `cd BlogApp` <br> `dotnet run`                                                  | Port displayed on run (on 7012) |
-| 8    | Open in browser            | `https://localhost:7177` (API) <br> `https://localhost:7012` (Blog App)         | Admin Panel & Client Site are in the same app  |
 
 
 ## Notes
