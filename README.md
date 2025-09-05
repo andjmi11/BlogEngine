@@ -27,7 +27,7 @@ All projects are in the same solution and reference `Blog.Shared` for consistenc
 ### 2. Configure Database (SQL LocalDB)
 Open BlogAPI/appsettings.json
 
-## 2a. Create and Start SQL LocalDB Instance
+### 2a. Create and Start SQL LocalDB Instance
 ### Create a new LocalDB instance 
 sqllocaldb create BlogLocalDB
 
@@ -37,7 +37,7 @@ sqllocaldb start BlogLocalDB
 #### Optional: check status
 sqllocaldb info BlogLocalDB
 
-## 2b. Apply EF Core Migrations
+### 2b. Apply EF Core Migrations
 ### Create a new migration (BlogAPI dir)
 dotnet ef migrations add InitialCreate
 
