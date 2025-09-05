@@ -55,7 +55,7 @@ dotnet ef database update
 
 ---
 
-### 5. Run the Projects
+### 5. Run the Projects (where .csproj)
 
 **Blog API (Backend)** runs on `https://localhost:7177`
 
