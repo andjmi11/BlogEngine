@@ -57,7 +57,7 @@ dotnet dev-certs https --trust
 ---
 
 
-### 5. Run the Projects (where .csproj)
+### 4. Run the Projects (where .csproj)
 
 **Blog API (Backend)** runs on `https://localhost:7177`
 
