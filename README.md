@@ -29,21 +29,26 @@ Open BlogAPI/appsettings.json
 
 ### 2a. Create and Start SQL LocalDB Instance
 ### Create a new LocalDB instance 
+```bash
 sqllocaldb create BlogLocalDB
+```
 
 #### Start the instance
+```bash
 sqllocaldb start BlogLocalDB
-
+```
 #### Optional: check status
 sqllocaldb info BlogLocalDB
 
 ### 2b. Apply EF Core Migrations
 ### Create a new migration (BlogAPI dir)
+```bash
 dotnet ef migrations add InitialCreate
-
+```
 ### Update the database to apply migrations
+```bash
 dotnet ef database update 
-
+```
 EF Core will create the database on the running LocalDB instance specified in your connection string.
 
 ### 3. Generate HTTPS Development Certificate (if needed)
