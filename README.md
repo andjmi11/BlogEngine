@@ -24,7 +24,7 @@ All projects are in the same solution and reference `Blog.Shared` for consistenc
 
 ### 1. Clone the repository
 
-### 2. Configure Database (SQL LocalDB)
+### 2. Configure Database (SQL Server)
 Open BlogAPI/appsettings.json
 
 ### 2a. Create and Start SQL LocalDB Instance
