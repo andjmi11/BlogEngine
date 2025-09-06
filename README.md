@@ -38,8 +38,9 @@ sqllocaldb create BlogLocalDB
 sqllocaldb start BlogLocalDB
 ```
 #### Optional: check status
+```bash
 sqllocaldb info BlogLocalDB
-
+```
 ### 2b. Apply EF Core Migrations
 ### Create a new migration (BlogAPI dir)
 ```bash
